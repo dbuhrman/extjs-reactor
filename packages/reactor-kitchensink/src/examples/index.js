@@ -49,6 +49,7 @@ import Candlestick from './Candlestick/Candlestick';
 import OHLC from './OHLC/OHLC';
 import Navigator from './Navigator/Navigator';
 import Draw from './Draw/Draw';
+import SalesPerEmployee from './SalesPerEmployee/SalesPerEmployee';
 
 const root = {
     id: 'root',
@@ -91,6 +92,11 @@ const root = {
             { text: 'Scatter', children: [
                 { text: 'Basic Scatter', component: BasicScatter }
             ] }
+        ] },
+        { text: 'D3', children: [
+            { text: 'Heatmap', children: [
+                { text: 'Sales Per Employee', component: SalesPerEmployee }
+            ]}
         ] },
         { text: 'Draw', component: Draw },
         { text: 'Form Fields', children: [
