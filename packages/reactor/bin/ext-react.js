@@ -35,20 +35,24 @@ printUsage = () => {
     );
 }
 
-/**
- * Ensures a 'ext-react/packages' folder exists for the workspace and theme packages to be installed in.
- */
-const ensurePackagesFolder = () => {
+const ensureDir = dir => {
     return new Promise(resolve => {
-        const dir = path.join('.', 'ext-react', 'packages');
         fs.stat(dir, (err, stats) => {
             if(err || !stats.isDirectory()) {
                 fs.mkdir(dir, resolve.bind(null));
             } else {
                 resolve();
             }
-        })
+        });
     });
+}
+
+/**
+ * Ensures a 'ext-react/packages' folder exists for the workspace and theme packages to be installed in.
+ */
+const ensurePackagesFolder = () => {
+    return ensureDir(path.join('.', 'ext-react'))
+            .then(ensureDir.bind(null, path.join('.', 'ext-react', 'packages')));
 }
 
 /**
