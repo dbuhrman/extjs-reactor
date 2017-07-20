@@ -1,5 +1,5 @@
 const OLD_MODULE_PATTERN = /^@extjs\/reactor\/modern$/;
-const MODULE_PATTERN = /^@extjs\/(ext-react.*|reactor\/classic)$/;
+const MODULE_PATTERN = /^@extjs\/(ext-react[^\/]*|reactor\/classic)$/;
 
 module.exports = function(babel) {
     const t = babel.types;

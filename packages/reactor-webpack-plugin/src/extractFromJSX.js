@@ -5,6 +5,7 @@ import traverse from 'ast-traverse';
 import generate from 'babel-generator';
 
 const MODULE_PATTERN = /^@extjs\/(ext-react.*|reactor\/(classic|modern))$/;
+const PLUGIN_PATTERN = /^@extjs\/(ext-react\/plugins)$/;
 
 function toXtype(str) {
     return str.toLowerCase().replace(/_/g, '-');
@@ -19,6 +20,7 @@ function toXtype(str) {
 module.exports = function extractFromJSX(js, compilation, module) {
     const statements = [];
     const types = {};
+    const pluginImports = new Set();
 
     // Aliases used for reactify
     const reactifyAliases = new Set([]);
@@ -55,7 +57,12 @@ module.exports = function extractFromJSX(js, compilation, module) {
     traverse(ast, {
         pre: function(node) {
             if (node.type == 'ImportDeclaration') {
-                if (node.source.value.match(MODULE_PATTERN)) {
+                if (node.source.value.match(PLUGIN_PATTERN)) {
+                    // look for: import { cellediting } from '@extjs/ext-react/plugins'
+                    for (let spec of node.specifiers) {
+                        pluginImports.add(spec.imported.name.toLowerCase());
+                    }
+                } else if (node.source.value.match(MODULE_PATTERN)) {
                     // look for: import { Grid } from '@extjs/reactor'
                     for (let spec of node.specifiers) {
                         types[spec.local.name] = { xtype: toXtype(spec.imported.name) };
@@ -120,6 +127,9 @@ module.exports = function extractFromJSX(js, compilation, module) {
     for (let key in types) {
         statements.push(`Ext.create(${JSON.stringify(types[key])})`)
     }
+
+    // push all plugin imports into statements as 'Ext.requires':
+    pluginImports.forEach(p => statements.push(`Ext.require('plugin.${p}')`));
 
     return statements;
 };

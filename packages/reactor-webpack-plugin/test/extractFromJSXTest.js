@@ -18,6 +18,14 @@ describe('extractFromJSX', () => {
         ])
     });
 
+    it('should generate requires for plugin imports', () => {
+        const statements = extractFromJSX(`import { cellediting } from '@extjs/ext-react/plugins';`);
+
+        expect(statements).to.eql([
+            `Ext.require('plugin.cellediting')`
+        ])
+    });
+
     it('should handle reactify(xtype)', () => {
         const statements = extractFromJSX(`
             import { reactify } from '@extjs/reactor';
