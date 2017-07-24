@@ -7,6 +7,7 @@
     "install:clean": "npm cache clear --force && lerna clean && npm install"
   },
   "devDependencies": {
-    "lerna": "^2.0.0"
+    "lerna": "^2.0.0",
+    "inflection": "^1.12.0"
   }
 }
