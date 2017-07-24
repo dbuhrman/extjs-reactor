@@ -1,11 +1,12 @@
 "use strict";
 
+import { singularize } from 'inflection';
 import { parse } from 'babylon';
 import traverse from 'ast-traverse';
 import generate from 'babel-generator';
 
-const MODULE_PATTERN = /^@extjs\/(ext-react.*|reactor\/(classic|modern))$/;
-const PLUGIN_PATTERN = /^@extjs\/(ext-react\/plugins)$/;
+const MODULE_PATTERN = /^@extjs\/(ext-react[^\/]*|reactor\/(classic|modern))$/;
+const ALIAS_PATTERN = /^@extjs\/ext-react\/(.*)$/;  // Used to match imports for aliases (i.e. - plugins, proxies, etc.)
 
 function toXtype(str) {
     return str.toLowerCase().replace(/_/g, '-');
@@ -20,7 +21,7 @@ function toXtype(str) {
 module.exports = function extractFromJSX(js, compilation, module) {
     const statements = [];
     const types = {};
-    const pluginImports = new Set();
+    const aliasImports = new Set();
 
     // Aliases used for reactify
     const reactifyAliases = new Set([]);
@@ -57,10 +58,11 @@ module.exports = function extractFromJSX(js, compilation, module) {
     traverse(ast, {
         pre: function(node) {
             if (node.type == 'ImportDeclaration') {
-                if (node.source.value.match(PLUGIN_PATTERN)) {
-                    // look for: import { cellediting } from '@extjs/ext-react/plugins'
+                const aliasMatch = node.source.value.match(ALIAS_PATTERN);
+                if (aliasMatch) {
+                    // look for: import { cellediting } from '@extjs/ext-react/plugins' or import { ajax } from '@extjs/ext-react/proxies'
                     for (let spec of node.specifiers) {
-                        pluginImports.add(spec.imported.name.toLowerCase());
+                        aliasImports.add(`${singularize(aliasMatch[1])}.${spec.imported.name.toLowerCase()}`);
                     }
                 } else if (node.source.value.match(MODULE_PATTERN)) {
                     // look for: import { Grid } from '@extjs/reactor'
@@ -129,7 +131,7 @@ module.exports = function extractFromJSX(js, compilation, module) {
     }
 
     // push all plugin imports into statements as 'Ext.requires':
-    pluginImports.forEach(p => statements.push(`Ext.require('plugin.${p}')`));
+    aliasImports.forEach(a => statements.push(`Ext.require('${a}')`));
 
     return statements;
 };
