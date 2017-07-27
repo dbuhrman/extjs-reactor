@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { area } from '@extjs/ext-react/series';
+import { sprite } from '@extjs/ext-react/legends';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class FullStackedAreaChartExample extends Component {
@@ -51,7 +55,7 @@ export default class FullStackedAreaChartExample extends Component {
         const {theme}=this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -61,9 +65,9 @@ export default class FullStackedAreaChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     insetPadding={'20 20 0 0'}
-                    legend={{type:'sprite'}}
+                    legend={{type: sprite}}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['data1', 'data2', 'data3', 'data4', 'other' ],
                         grid: true,
@@ -71,7 +75,7 @@ export default class FullStackedAreaChartExample extends Component {
                         maximum: 100,
                         renderer: this.onAxisLabelRender
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         fields: 'month',
                         grid: true,
@@ -82,7 +86,7 @@ export default class FullStackedAreaChartExample extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'area',
+                        type: area,
                         fullStack: true,
                         title: [ 'IE', 'Firefox', 'Chrome', 'Safari', 'Others' ],
                         xField: 'month',

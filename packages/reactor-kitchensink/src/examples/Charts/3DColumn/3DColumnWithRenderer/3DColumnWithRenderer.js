@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { panzoom } from '@extjs/ext-react/interactions';
+import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { bar3d } from '@extjs/ext-react/series';
+import { fit } from '@extjs/ext-react/layouts';
 import ChartToolbar from '../../ChartToolbar';
 import { storeData, colors } from './data';
 
@@ -13,7 +17,7 @@ export default class ThreeDColumnWithRenderer extends Component {
 
     render() {
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar downloadChartRef={this.refs.chart}/>
                 <Cartesian
                     shadow
@@ -21,19 +25,19 @@ export default class ThreeDColumnWithRenderer extends Component {
                     store={this.store}
                     theme="muted"
                     interactions={{
-                        type: 'panzoom',
+                        type: panzoom,
                         zoomOnPanGesture: true
                     }}
                     insetPadding="10 20 0 10"
                     innerPadding="0 4 0 3"
                     axes={[{
-                        type: 'numeric3d',
+                        type: numeric3d,
                         fields: 'data3',
                         position: 'left',
                         grid: true,
                         renderer: (axis, label, layoutContext) => layoutContext.renderer(label) + '%'
                     }, {
-                        type: 'category3d',
+                        type: category3d,
                         fields: 'month',
                         position: 'bottom',
                         grid: true,
@@ -44,7 +48,7 @@ export default class ThreeDColumnWithRenderer extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'bar3d',
+                        type: bar3d,
                         xField: 'month',
                         yField: 'data3',
                         label: {

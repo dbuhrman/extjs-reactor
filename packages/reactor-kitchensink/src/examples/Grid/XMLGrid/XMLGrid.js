@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Container, Column } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { xml } from '@extjs/ext-react/readers';
 
 
 export default class XmlGridExample extends Component {
@@ -13,10 +15,10 @@ export default class XmlGridExample extends Component {
             'ProductGroup'
         ],
         proxy:{
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/Grids/sheldon.xml',
             reader: {
-                type: 'xml',
+                type: xml,
                 // records will have an "Item" tag
                 record: 'Item',
                 idProperty: 'ASIN',

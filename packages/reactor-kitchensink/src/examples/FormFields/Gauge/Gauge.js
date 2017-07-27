@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { SliderField, Gauge, FormPanel } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default class GaugeExample extends Component {
 
@@ -19,7 +20,7 @@ export default class GaugeExample extends Component {
         const { value } = this.state;
 
         return (
-            <FormPanel shadow layout="vbox" maxWidth={350}>
+            <FormPanel shadow layout={vbox} maxWidth={350}>
                 <SliderField label="Value" onChange={this.updateGauges.bind(this)} value={value}/>
                 <Gauge flex={1} value={value}/>
                 <Gauge flex={1} value={value} ui="green" trackStart={180} trackLength={360}/>

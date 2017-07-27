@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { sprite } from '@extjs/ext-react/legends';
+import { rotate, itemhighlight } from '@extjs/ext-react/interactions';
+import { pie } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Spie extends Component {
@@ -26,20 +30,20 @@ export default class Spie extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Polar
                     shadow
                     store={this.store}
                     theme={theme}
                     legend={{
-                        type: 'sprite',
+                        type: sprite,
                         docked: 'bottom',
                         marker: { size: 16 }
                     }}
-                    interactions={['rotate', 'itemhighlight']}
+                    interactions={[rotate, itemhighlight]}
                     series={[{
-                        type: 'pie',
+                        type: pie,
                         animation: {
                             easing: 'easeOut',
                             duration: 500

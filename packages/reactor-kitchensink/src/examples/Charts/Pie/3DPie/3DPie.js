@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { rotatePie3d } from '@extjs/ext-react/interactions';
+import { pie3d } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
@@ -30,7 +33,7 @@ export default class ThreeDPie extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -44,7 +47,7 @@ export default class ThreeDPie extends Component {
                             innerPadding: 20
                         }
                     }}
-                    interactions="rotatePie3d"
+                    interactions={rotatePie3d}
                     animate={{
                         duration: 500,
                         easing: 'easeIn'
@@ -52,7 +55,7 @@ export default class ThreeDPie extends Component {
                     store={this.store}
                     theme={theme}
                     series={[{
-                        type: 'pie3d',
+                        type: pie3d,
                         angleField: 'g1',
                         donut: 30,
                         distortion: 0.6,

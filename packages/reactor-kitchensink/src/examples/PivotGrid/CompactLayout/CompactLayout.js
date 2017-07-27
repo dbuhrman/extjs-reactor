@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
+import { fit } from '@extjs/ext-react/layouts';
 import { generateData } from '../generateSaleData';
 import SaleModel from '../SaleModel';
 
@@ -17,7 +18,7 @@ export default class CompactLayout extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     ref="pivotgrid"
                     shadow

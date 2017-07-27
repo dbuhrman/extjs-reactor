@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Calendar_Week, Calendar_List } from '@extjs/ext-react-calendar';
 import { Panel } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { hbox } from '@extjs/ext-react/layouts';
 import './data';
 
 export default class CalendarWeekViewExample extends Component {
@@ -13,7 +15,7 @@ export default class CalendarWeekViewExample extends Component {
     store = Ext.create('Ext.calendar.store.Calendars', {
         autoLoad: true,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: '/KitchenSink/CalendarWeek'
         }
     })
@@ -23,9 +25,9 @@ export default class CalendarWeekViewExample extends Component {
             <Panel
                 shadow
                 title={Ext.Date.format(new Date(), 'F Y')}
-                layout="hbox"
+                layout={hbox}
                 header={{
-                    layout: 'hbox',
+                    layout: hbox,
                     items: [{
                         xtype: 'component',
                         flex: 1

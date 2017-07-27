@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { rotate, itemhighlight } from '@extjs/ext-react/interactions';
+import { pie } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import {innerData, outerData} from './createData';
 
@@ -23,17 +26,17 @@ export default class DoubleDonut extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Polar
                     shadow
                     insetPadding={20}
                     innerPadding={20}
-                    interactions={['rotate', 'itemhighlight']}
+                    interactions={[rotate, itemhighlight]}
                     store={this.outerStore}
                     theme={theme}
                     series={[{
-                        type: 'pie',
+                        type: pie,
                         angleField: 'usage',
                         label: {
                             field: 'type',
@@ -47,7 +50,7 @@ export default class DoubleDonut extends Component {
                             renderer: (tooltip, record) => { tooltip.setHtml(Ext.String.capitalize(record.get('type')) + ' sector: ' + record.get('usage')); }
                         }
                     }, {
-                        type: 'pie',
+                        type: pie,
                         angleField: 'usage',
                         donut: 80,
                         highlight: true,

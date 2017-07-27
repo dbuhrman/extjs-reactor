@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { rotate } from '@extjs/ext-react/interactions';
+import { category, numeric } from '@extjs/ext-react/axes';
+import { radar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
@@ -49,7 +53,7 @@ export default class Multiaxis extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -59,10 +63,10 @@ export default class Multiaxis extends Component {
                     shadow
                     insetPadding={25}
                     store={this.store}
-                    interactions={['rotate']}
+                    interactions={rotate}
                     theme={theme}
                     axes={[{
-                        type: 'category',
+                        type: category,
                         position: 'angular',
                         id: 'main-angular-axis',
                         grid: true,
@@ -71,7 +75,7 @@ export default class Multiaxis extends Component {
                             strokeStyle: 'rgb(73,112,142)'
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'angular',
                         linkedTo: 'main-angular-axis',
                         renderer: this.onMultiAxisLabelRender,
@@ -80,7 +84,7 @@ export default class Multiaxis extends Component {
                             alongAxis: 'radial-axis'
                         }
                     }, {
-                        type: 'numeric',
+                        type: numeric,
                         id: 'radial-axis',
                         position: 'radial',
                         label: {
@@ -92,7 +96,7 @@ export default class Multiaxis extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'radar',
+                        type: radar,
                         angleField: 'month',
                         radiusField: 'high',
                         style: {

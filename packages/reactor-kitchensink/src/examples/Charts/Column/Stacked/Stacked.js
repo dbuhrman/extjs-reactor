@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { sprite } from '@extjs/ext-react/legends';
+import { panzoom } from '@extjs/ext-react/interactions';
+import { bar } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -39,7 +44,7 @@ export default class Stacked extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onRefreshClick={this.refreshData}
                     onThemeChange={this.changeTheme}
@@ -54,11 +59,11 @@ export default class Stacked extends Component {
                     theme={theme}
                     insetPadding="20 20 10 10"
                     legend={{
-                        type: 'sprite',
+                        type: sprite,
                         position: 'bottom'
                     }}
                     interactions={[{
-                        type: 'panzoom',
+                        type: panzoom,
                         axes: {
                             left: {
                                 allowPan: false,
@@ -71,7 +76,7 @@ export default class Stacked extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         xField: 'name',
                         yField: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'],
                         title: ['Apples', 'Oranges', 'Bananas', 'Plums', 'Mangos', 'Pears'],
@@ -81,11 +86,11 @@ export default class Stacked extends Component {
                         }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6']
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         fields: 'name'
                     }]}

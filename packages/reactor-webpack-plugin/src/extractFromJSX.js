@@ -6,7 +6,7 @@ import traverse from 'ast-traverse';
 import generate from 'babel-generator';
 
 const MODULE_PATTERN = /^@extjs\/(ext-react[^\/]*|reactor\/(classic|modern))$/;
-const ALIAS_PATTERN = /^@extjs\/ext-react\/(.*)$/;  // Used to match imports for aliases (i.e. - plugins, proxies, etc.)
+const ALIAS_PATTERN = /^@extjs\/ext-react\/(data\/)?(.*)$/;  // Used to match imports for aliases (i.e. - plugins, proxies, etc.)
 
 function toXtype(str) {
     return str.toLowerCase().replace(/_/g, '-');
@@ -60,9 +60,10 @@ module.exports = function extractFromJSX(js, compilation, module) {
             if (node.type == 'ImportDeclaration') {
                 const aliasMatch = node.source.value.match(ALIAS_PATTERN);
                 if (aliasMatch) {
+                    const aliasType = singularize(aliasMatch[2], aliasMatch[2] === 'axes' ? 'axis' : null);
                     // look for: import { cellediting } from '@extjs/ext-react/plugins' or import { ajax } from '@extjs/ext-react/proxies'
                     for (let spec of node.specifiers) {
-                        aliasImports.add(`${singularize(aliasMatch[1])}.${spec.imported.name.toLowerCase()}`);
+                        aliasImports.add(`${aliasMatch[1]?'data.':''}${aliasType}.${spec.imported.name.replace(/_/g, '-')}`);
                     }
                 } else if (node.source.value.match(MODULE_PATTERN)) {
                     // look for: import { Grid } from '@extjs/reactor'

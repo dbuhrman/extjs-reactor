@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { bar3d } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
-
-Ext.require([
-    'Ext.chart.interactions.PanZoom',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category',
-    'Ext.chart.axis.Numeric3D',
-    'Ext.chart.grid.HorizontalGrid3D',
-    'Ext.chart.series.Bar3D',
-    'Ext.chart.axis.Category3D'
-]);
 
 export default class Basic3DColumnChartExample extends Component {
 
@@ -39,7 +32,7 @@ export default class Basic3DColumnChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refresh}
@@ -50,12 +43,12 @@ export default class Basic3DColumnChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     series={{
-                        type: 'bar3d',
+                        type: bar3d,
                         xField: 'name',
                         yField: ['g1', 'g2', 'g3']
                     }}
                     axes={[{
-                        type: 'numeric3d',
+                        type: numeric3d,
                         position: 'left',
                         fields: ['g1', 'g2', 'g3'],
                         grid: true,
@@ -65,12 +58,12 @@ export default class Basic3DColumnChartExample extends Component {
                             }
                         }
                     }, {
-                        type: 'category3d',
+                        type: category3d,
                         position: 'bottom',
                         fields: 'name'
                     }]}
                 />
-            </Container>            
+            </Container>
         )
     }
 }

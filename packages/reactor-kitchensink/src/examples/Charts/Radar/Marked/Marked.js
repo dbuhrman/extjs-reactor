@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { sprite } from '@extjs/ext-react/legends';
+import { rotate } from '@extjs/ext-react/interactions';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { radar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Marked extends Component {
@@ -33,29 +38,29 @@ export default class Marked extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Polar
                     shadow
                     insetPadding={25}
-                    legend={{ type: 'sprite' }}
+                    legend={{ type: sprite }}
                     animation={{ duration: 200 }}
                     store={this.store}
-                    interactions={['rotate']}
+                    interactions={rotate}
                     theme={theme}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'radial',
                         minimum: 0,
                         maximum: 50,
                         majorTickSteps: 9
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'angular',
                         grid: true
                     }]}
                     series={[{
-                        type: 'radar',
+                        type: radar,
                         title: 'IE',
                         angleField: 'month',
                         radiusField: 'data1',
@@ -73,7 +78,7 @@ export default class Marked extends Component {
                             renderer: this.onSeriesLabelRender
                         }
                     }, {
-                        type: 'radar',
+                        type: radar,
                         title: 'Firefox',
                         angleField: 'month',
                         radiusField: 'data2',
@@ -91,7 +96,7 @@ export default class Marked extends Component {
                             renderer: this.onSeriesLabelRender
                         }
                     }, {
-                        type: 'radar',
+                        type: radar,
                         title: 'Chrome',
                         angleField: 'month',
                         radiusField: 'data3',
@@ -109,7 +114,7 @@ export default class Marked extends Component {
                             renderer: this.onSeriesLabelRender
                         }
                     }, {
-                        type: 'radar',
+                        type: radar,
                         title: 'Safari',
                         angleField: 'month',
                         radiusField: 'data4',

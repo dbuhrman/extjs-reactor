@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormPanel, Panel, Button, Sheet, Container, SegmentedButton, Label, TitleBar } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default class MenuExample extends Component {
 
@@ -34,7 +35,7 @@ export default class MenuExample extends Component {
                     modal={modal} 
                     reveal={reveal} 
                     displayed={displayed} onHide={() => this.setState({ displayed: false })}
-                    layout="vbox"
+                    layout={vbox}
                     padding="15 0"
                 >
                     <Button text="Settings" iconCls="x-fa fa-gear" handler={this.toggleMenu} {...menuItemDefaults}/>
@@ -46,7 +47,7 @@ export default class MenuExample extends Component {
                     <div><b>Sheet</b> is a component which allows you to easily display sliding menus from any side of the screen. You can show the menu by clicking the "Show Menu" button below or by swiping from the edge of the screen.</div>
                 </Panel>
 
-                <Panel layout={{type: 'vbox', align: 'left'}} shadow margin="20 0 0 0" padding="15" shadow>
+                <Panel layout={{type: vbox, align: 'left'}} shadow margin="20 0 0 0" padding="15">
                     <Button 
                         ui="action" 
                         enableToggle={true} 

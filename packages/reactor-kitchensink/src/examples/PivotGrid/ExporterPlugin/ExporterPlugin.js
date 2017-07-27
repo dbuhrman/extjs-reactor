@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@extjs/reactor/modern';
+import { fit, hbox } from '@extjs/ext-react/layouts';
+import { pivotexporter, pivotconfigurator } from '@extjs/ext-react/plugins';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 
@@ -50,14 +52,14 @@ export default class ExporterPlugin extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     ref="pivotgrid"
                     shadow
                     plugins={[{
-                        type: 'pivotexporter'
+                        type: pivotexporter
                     }, {
-                        type: 'pivotconfigurator',
+                        type: pivotconfigurator,
                         // It is possible to configure a list of fields that can be used to
                         // configure the pivot grid
                         // If no fields list is supplied then all fields from the Store model
@@ -234,7 +236,7 @@ export default class ExporterPlugin extends Component {
                     ui="app-transparent-toolbar"
                     padding="5 8"
                     layout={{
-                        type: 'hbox',
+                        type: hbox,
                         align: 'stretch'
                     }}
                     defaults={{

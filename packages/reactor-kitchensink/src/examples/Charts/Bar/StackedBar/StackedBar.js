@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { bar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
-
-Ext.require([
-    'Ext.chart.interactions.PanZoom',
-    'Ext.chart.series.Bar',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category'
-]);
 
 export default class StackedBarChartExample extends Component {
     constructor() {
@@ -35,7 +31,7 @@ export default class StackedBarChartExample extends Component {
         const { theme } = this.state;
         
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refresh}
@@ -48,12 +44,12 @@ export default class StackedBarChartExample extends Component {
                     theme={theme}
                     insetPadding={'20 20 10 10'}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         xField: 'name',
                         yField: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6']
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'bottom',
                         fields: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'],
                         grid: {
@@ -71,7 +67,7 @@ export default class StackedBarChartExample extends Component {
                         },
                         maxZoom: 1
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'left',
                         fields: 'name',
                         maxZoom: 4

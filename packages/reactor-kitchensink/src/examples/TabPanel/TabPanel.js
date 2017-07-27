@@ -1,9 +1,10 @@
 import React from 'react';
 import { TabPanel, Component, Container } from '@extjs/ext-react';
+import { vbox, center } from '@extjs/ext-react/layouts';
 
 export default function TabPanelExample() {
     return (
-        <Container layout={{type: 'vbox', align: 'stretch'}} padding={10}>
+        <Container layout={{type: vbox, align: 'stretch'}} padding={10}>
             <TabPanel 
                 flex={1}
                 shadow 
@@ -50,6 +51,6 @@ export default function TabPanelExample() {
 
 const tabProps = {
     cls: "card",
-    layout: "center"
+    layout: center
 };
 

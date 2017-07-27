@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, ActionSheet, Container, Button, SparkLineLine, RendererCell, Column, TextColumn, CheckColumn, NumberColumn, DateColumn, Rating, GridSummaryRow } from '@extjs/reactor/modern';
+import { ajax } from '@extjs/ext-react/proxies';
+import { fit } from '@extjs/ext-react/layouts';
+import { grideditable, gridviewoptions, summaryrow, rowexpander, gridexporter, rowoperations } from '@extjs/ext-react/plugins';
 import model from './GridModel';
 import './data';
 import './style.css';
@@ -23,7 +26,7 @@ export default class BigDataGridExample extends Component {
         groupField: 'department',
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: '/KitchenSink/BigData'
         }            
     });
@@ -57,7 +60,7 @@ export default class BigDataGridExample extends Component {
         const { showExportSheet } = this.state;
 
         return (
-            <Container layout="fit" shadow>
+            <Container layout={fit} shadow>
                 <ActionSheet displayed={showExportSheet}>
                     <Button handler={this.exportToXlsx} text="Excel xlsx"/>
                     <Button handler={this.exportToXml} text="Excel xml"/>
@@ -73,14 +76,14 @@ export default class BigDataGridExample extends Component {
                     shadow
                     grouped
                     rowNumbers
-                    plugins={{
-                        grideditable: true,
-                        gridviewoptions: true,
-                        summaryrow: true,
-                        rowexpander: true,
-                        gridexporter: true,
-                        rowoperations: true
-                    }}
+                    plugins={[
+                        grideditable,
+                        gridviewoptions,
+                        summaryrow,
+                        rowexpander,
+                        gridexporter,
+                        rowoperations
+                    ]}
                     groupFooter={{
                         xtype: 'gridsummaryrow'
                     }}

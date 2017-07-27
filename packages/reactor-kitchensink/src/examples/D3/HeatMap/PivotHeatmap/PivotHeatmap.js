@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Panel, Toolbar, Spacer, Button } from '@extjs/ext-react';
 import createData from './createData';
 import { PivotHeatMap } from '@extjs/ext-react-pivot-d3';
+import { fit } from '@extjs/ext-react/layouts';
 
 export default class PivotHeatMapExample extends Component {
     constructor() {
@@ -48,10 +49,7 @@ export default class PivotHeatMapExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Panel 
-                shadow 
-                layout="fit"
-            >
+            <Panel shadow layout={fit}>
                 <Toolbar docked="top">
                     <Spacer/>
                     <Button iconCls="x-fa fa-refresh" handler={this.refreshData} text="Refresh Data"/>

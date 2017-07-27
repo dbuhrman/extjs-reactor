@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { pie } from '@extjs/ext-react/series';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
-
-Ext.require([
-    'Ext.chart.series.Pie'
-]);
 
 export default class BasicPieChartExample extends Component {
     
@@ -33,7 +31,7 @@ export default class BasicPieChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refresh}
@@ -45,7 +43,7 @@ export default class BasicPieChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     series={[{
-                        type: 'pie',
+                        type: pie,
                         xField: 'g1',
                         label: {
                             field: 'name'

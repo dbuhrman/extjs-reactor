@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
+import { vbox, hbox } from '@extjs/ext-react/layouts';
 
 export default class TouchEventsExample extends Component {
 
@@ -44,7 +45,7 @@ export default class TouchEventsExample extends Component {
         const { events } = this.state;
 
         const touchPad = (
-            <Container ref="touchpad" flex={1} layout={{type: 'vbox', pack: 'center', align: 'stretch'}} style={{border: '8px dashed #d6d6d6', borderRadius: '30px'}}>
+            <Container ref="touchpad" flex={1} layout={{type: vbox, pack: 'center', align: 'stretch'}} style={{border: '8px dashed #d6d6d6', borderRadius: '30px'}}>
                 <div style={{textAlign: 'center', fontSize: '48px'  , color: '#ccc'}}>Touch Here</div>
             </Container>
         )
@@ -67,15 +68,15 @@ export default class TouchEventsExample extends Component {
 
         if (Ext.os.is.Phone) {
             return (
-                <Container layout="vbox" defaults={{ margin: '10' }}>
+                <Container layout={vbox} defaults={{ margin: '10' }}>
                     { eventLog }
                     { touchPad }
                 </Container>
             )
         } else {
             return (
-                <Container layout="hbox">
-                    <Container flex={1} layout="vbox" padding={10} margin="0 20 0 0">
+                <Container layout={hbox}>
+                    <Container flex={1} layout={vbox} padding={10} margin="0 20 0 0">
                         <Panel shadow margin="0 0 20 0" bodyPadding="10">
                             <div>
                                 <div>Ext JS comes with a multitude of touch events available on components. Included touch events that can be used are:</div>

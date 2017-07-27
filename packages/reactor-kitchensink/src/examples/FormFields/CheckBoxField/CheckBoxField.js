@@ -1,9 +1,10 @@
 import React from 'react';
 import { FormPanel, CheckBoxField } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default function CheckBoxFieldExample() {
     return (
-        <FormPanel shadow layout={{type: 'vbox', align: 'left'}} bodyPadding="10">
+        <FormPanel shadow layout={{type: vbox, align: 'left'}} bodyPadding="10">
             <CheckBoxField boxLabel="Unchecked"/>
             <CheckBoxField boxLabel="Checked" checked/>
             <CheckBoxField boxLabel="Disabled" disabled/>

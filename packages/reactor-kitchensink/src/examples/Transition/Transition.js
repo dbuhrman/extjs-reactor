@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Transition, Spacer, Panel, Button, Menu, MenuItem, NumberField, Label, Container, SliderField } from '@extjs/ext-react';
+import { vbox, hbox, fit } from '@extjs/ext-react/layouts';
 import colors from '../colors';
 
 export default class TransitionExample extends Component {
@@ -46,7 +47,7 @@ export default class TransitionExample extends Component {
         ];
 
         return (
-            <Container layout="vbox" padding="10">
+            <Container layout={vbox} padding="10">
                 <Panel ui="instructions" shadow>
                     <div>
                         Use <b>Transition</b> to animate swapping one component for another.  This is especially useful when
@@ -54,7 +55,7 @@ export default class TransitionExample extends Component {
                     </div>
                 </Panel>
 
-                <Container layout="hbox" defaults={{ margin: '0 10 0 0' }} margin="20 0">
+                <Container layout={hbox} defaults={{ margin: '0 10 0 0' }} margin="20 0">
                     <Button iconCls="x-fa fa-chevron-left" handler={this.goBack} ui="action raised" margin="0 5 0 0"/>
                     <Button iconCls="x-fa fa-chevron-right" handler={this.goForward} ui="action raised"/>
                     <Spacer/>
@@ -80,7 +81,7 @@ export default class TransitionExample extends Component {
                     <Container style={{lineHeight: '32px', fontSize: '16px'}}><div>{duration.toString()}ms</div></Container>
                 </Container>
 
-                <Panel flex={1} layout="fit" shadow>
+                <Panel flex={1} layout={fit} shadow>
                     <Transition direction={direction} type={type.toLowerCase()} easing={easing} duration={duration}>
                         <Container key={`card${index}`} layout="center" style={styles[Math.abs(index) % 3]}>
                             <div>View {index}</div>

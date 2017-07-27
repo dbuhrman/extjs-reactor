@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { itemedit } from '@extjs/ext-react/interactions';
+import { sprite } from '@extjs/ext-react/legends';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { scatter } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
-
-Ext.require('Ext.chart.interactions.ItemEdit');
 
 export default class CustomIcons extends Component {
 
@@ -32,7 +35,7 @@ export default class CustomIcons extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -41,15 +44,15 @@ export default class CustomIcons extends Component {
                 <Cartesian
                     shadow
                     insetPadding="20 20 10 10"
-                    legend={{ type: 'sprite' }}
+                    legend={{ type: sprite }}
                     store={this.store}
                     theme={theme}
                     interactions={[{
-                        type: 'itemedit',
+                        type: itemedit,
                         style: { strokeStyle: 'gray' }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['g1', 'g2', 'g3', 'g4'],
                         label: {
@@ -58,12 +61,12 @@ export default class CustomIcons extends Component {
                             }
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         fields: 'id'
                     }]}
                     series={[{
-                        type: 'scatter',
+                        type: scatter,
                         xField: 'id',
                         yField: 'g1',
                         title: 'Group 1',
@@ -81,7 +84,7 @@ export default class CustomIcons extends Component {
                             ]
                         }
                     }, {
-                        type: 'scatter',
+                        type: scatter,
                         xField: 'id',
                         yField: 'g2',
                         title: 'Group 2',

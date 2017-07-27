@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
+import { fit, hbox } from '@extjs/ext-react/layouts';
 import { generateData } from '../generateSaleData';
 import SaleModel from '../SaleModel';
 
@@ -15,7 +16,7 @@ export default class OutlineLayout extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     ref="pivotgrid"
                     shadow
@@ -57,7 +58,7 @@ export default class OutlineLayout extends Component {
                     docked="top"
                     padding="5 8"
                     layout={{
-                        type: 'hbox',
+                        type: hbox,
                         align: 'stretch'
                     }}
                     ui="app-transparent-toolbar"

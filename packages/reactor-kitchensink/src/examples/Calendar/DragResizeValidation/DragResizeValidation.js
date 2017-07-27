@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Calendar_Day } from '@extjs/ext-react-calendar';
 import { Panel } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { fit } from '@extjs/ext-react/layouts';
 import './data';
 
 export default class CalendarValidationExample extends Component {
@@ -8,7 +10,7 @@ export default class CalendarValidationExample extends Component {
     store = Ext.create('Ext.calendar.store.Calendars', {
         autoLoad: true,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: '/KitchenSink/CalendarValidation'
         }
     })
@@ -36,7 +38,7 @@ export default class CalendarValidationExample extends Component {
     render() {
         return (
             <Panel
-                layout="fit"
+                layout={fit}
                 shadow
             >
                 <Calendar_Day

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { bar3d } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class NegativeValues extends Component {
@@ -35,7 +38,7 @@ export default class NegativeValues extends Component {
 
     render() {
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar downloadChartRef={this.refs.chart}/>
                 <Cartesian
                     shadow
@@ -50,7 +53,7 @@ export default class NegativeValues extends Component {
                         duration: 500
                     }}
                     axes={[{
-                        type: 'numeric3d',
+                        type: numeric3d,
                         position: 'left',
                         fields: 'gaming',
                         grid: {
@@ -62,7 +65,7 @@ export default class NegativeValues extends Component {
                             }
                         }
                     }, {
-                        type: 'category3d',
+                        type: category3d,
                         position: 'bottom',
                         fields: 'quarter',
                         grid: true,
@@ -73,7 +76,7 @@ export default class NegativeValues extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'bar3d',
+                        type: bar3d,
                         xField: 'quarter',
                         yField: 'gaming',
                         highlight: true,

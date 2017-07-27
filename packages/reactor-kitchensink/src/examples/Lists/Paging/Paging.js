@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { List, SegmentedButton, Button, Panel, Container } from '@extjs/ext-react';
-
+import { ajax } from '@extjs/ext-react/proxies';
+import { json } from '@extjs/ext-react/readers';
+import { listpaging } from '@extjs/ext-react/plugins';
 require('../stocks');
-
-Ext.require('Ext.plugin.ListPaging');
 
 export default class PagingListExample extends Component {
 
@@ -15,10 +15,10 @@ export default class PagingListExample extends Component {
         fields: ['name'],
         autoLoad: true,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: '/KitchenSink/Company',
             reader: {
-                type: 'json',
+                type: json,
                 rootProperty: 'data',
                 // Do not attempt to load orders inline.
                 // They are loaded through the proxy
@@ -50,9 +50,7 @@ export default class PagingListExample extends Component {
                 shadow
                 itemTpl="{name}"
                 store={this.store}
-                plugins={[
-                    { type: 'listpaging' }
-                ]}
+                plugins={listpaging}
                 platformConfig={{
                     '!phone': {
                         height: 450,

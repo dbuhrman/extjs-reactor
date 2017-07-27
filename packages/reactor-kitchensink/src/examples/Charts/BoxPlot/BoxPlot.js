@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { boxplot } from '@extjs/ext-react/series';
 import ChartToolbar from '../ChartToolbar';
 import data from './data';
 
@@ -28,7 +31,7 @@ export default class BoxPlotExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onToggleZoomOnPan={this.toggleZoomOnPan}
@@ -46,7 +49,7 @@ export default class BoxPlotExample extends Component {
                     }}
                     store={this.store}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         minimum: 10,
                         majorTickSteps: 8,
@@ -66,11 +69,11 @@ export default class BoxPlotExample extends Component {
                             }
                         }]
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom'
                     }]}
                     series={[{
-                        type: 'boxplot',
+                        type: boxplot,
                         xField: 'field',
                         store: this.store,
                         highlight: true,

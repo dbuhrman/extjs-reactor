@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { itemhighlight } from '@extjs/ext-react/interactions';
+import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { bar3d } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Stacked extends Component {
@@ -51,11 +55,11 @@ export default class Stacked extends Component {
                     ref="chart"
                     store={this.store}
                     theme={theme}
-                    interactions="itemhighlight"
+                    interactions={itemhighlight}
                     insetPadding="40 20 10 10"
                     legend={{ type: 'sprite' }}
                     axes={[{
-                        type: 'numeric3d',
+                        type: numeric3d,
                         position: 'left',
                         title: 'Billions of USD',
                         renderer: (axis, label, layoutContext) => Ext.util.Format.number(layoutContext.renderer(label) / 1000, '0,000'),
@@ -68,12 +72,12 @@ export default class Stacked extends Component {
                             }
                         }
                     }, {
-                        type: 'category3d',
+                        type: category3d,
                         position: 'bottom',
                         grid: true
                     }]}
                     series={[{
-                        type: 'bar3d',
+                        type: bar3d,
                         xField: 'country',
                         yField: ['agr', 'ind', 'ser'],
                         title: ['Agriculture', 'Industry', 'Services'],

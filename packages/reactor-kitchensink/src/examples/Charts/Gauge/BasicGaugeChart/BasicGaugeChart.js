@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit, vbox } from '@extjs/ext-react/layouts';
+import { gauge } from '@extjs/ext-react/series';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -25,11 +27,11 @@ export default class BasicGaugeChartExample extends Component {
 
     render() {
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onRefreshClick={this.refresh}
                 />
-                <Panel shadow layout="vbox">
+                <Panel shadow layout={vbox}>
                     <Polar
                         innerPadding={20}
                         store={this.store}
@@ -39,7 +41,7 @@ export default class BasicGaugeChartExample extends Component {
                             duration: 1000
                         }}
                         series={[{
-                            type: 'gauge',
+                            type: gauge,
                             angleField: 'g1',
                             minimum: 100,
                             maximum: 800,
@@ -56,7 +58,7 @@ export default class BasicGaugeChartExample extends Component {
                             duration: 1000
                         }}
                         series={[{
-                            type: 'gauge',
+                            type: gauge,
                             angleField: 'g1',
                             donut: 30,
                             value: 60,

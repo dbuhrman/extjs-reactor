@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Toolbar, Button } from '@extjs/ext-react';
 import { D3_HeatMap } from '@extjs/ext-react-d3';
+import { vbox } from '@extjs/ext-react/layouts';
 import { refreshData, refreshSize } from './createData';
 
 export default class SalesPerEmployee extends Component {
@@ -39,7 +40,7 @@ export default class SalesPerEmployee extends Component {
         const { theme } = this.state;
 
         return (
-            <Panel shadow layout="vbox">
+            <Panel shadow layout={vbox}>
                 <Toolbar docked="top">
                     <Button iconCls="x-fa fa-refresh" handler={this.refreshData} text="Refresh Data"/>
                     <Button iconCls="x-fa fa-table" handler={this.refreshSize} text="Refresh Size"/>

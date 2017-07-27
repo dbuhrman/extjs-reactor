@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Draw, Toolbar, Button, Spacer, Label } from '@extjs/ext-react';
+import { fit } from '@extjs/ext-react/layouts';
 
 export default class DrawExample extends Component {
     
@@ -96,7 +97,7 @@ export default class DrawExample extends Component {
 
     render() {
         return (
-            <Panel shadow layout="fit">
+            <Panel shadow layout={fit}>
                 <Toolbar docked="top">
                     <div style={{fontSize: Ext.os.is.Phone ? '12px' : '14px'}}>Use your {Ext.supports.Touch ? 'finger' : 'mouse'} to paint on the surface below.</div>
                     <Spacer/>

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filterChange } from './actions';
 import { Grid, Column, TitleBar, SearchField, Label } from '@extjs/ext-react';
+import { gridpagingtoolbar } from '@extjs/ext-react/plugins';
 import data from './data';
-
-Ext.require(['Ext.grid.plugin.PagingToolbar']);
 
 class Employees extends Component {
 
@@ -36,9 +35,7 @@ class Employees extends Component {
             <Grid
                 store={this.store}
                 shadow
-                plugins={{
-                    gridpagingtoolbar: true
-                }}
+                plugins={gridpagingtoolbar}
             >
                 <TitleBar title="Employees" docked="top" ui="titlebar-search">
                     <SearchField 

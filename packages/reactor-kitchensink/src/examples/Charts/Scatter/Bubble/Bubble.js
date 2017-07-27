@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { itemhighlight } from '@extjs/ext-react/interactions';
+import { scatter } from '@extjs/ext-react/series';
+import { numeric } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
@@ -55,7 +59,7 @@ export default class Bubble extends Component {
         const{ theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -66,9 +70,9 @@ export default class Bubble extends Component {
                     shadow
                     store={this.store}
                     theme={theme}
-                    interactions={['itemhighlight']}
+                    interactions={itemhighlight}
                     series={[{
-                        type: 'scatter',
+                        type: scatter,
                         xField: 'id',
                         yField: 'g2',
                         highlight: {
@@ -91,7 +95,7 @@ export default class Bubble extends Component {
                         }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         minimum: 0,
                         style: {
@@ -103,7 +107,7 @@ export default class Bubble extends Component {
                             }
                         }
                     }, {
-                        type: 'numeric',
+                        type: numeric,
                         position: 'bottom'
                     }]}
                 />

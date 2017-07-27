@@ -1,5 +1,6 @@
 import React from 'react';
 import { TabPanel, Container } from '@extjs/ext-react';
+import { center } from '@extjs/ext-react/layouts';
 
 export default function BottomTabsExample() {
     return (
@@ -8,7 +9,7 @@ export default function BottomTabsExample() {
             tabBar={{ docked: 'bottom' }}
             defaults={{
                 cls: "card",
-                layout: "center"
+                layout: center
             }}
         >
             <Container title="Info" iconCls="x-fa fa-info-circle">

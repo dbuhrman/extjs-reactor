@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-
-Ext.require([
-    'Ext.grid.plugin.SummaryRow',
-    'Ext.data.summary.Average',
-    'Ext.data.summary.Max',
-]);
+import { gridsummaryrow } from '@extjs/ext-react/plugins';
+import { average, max } from '@extjs/ext-react/data/summaries';
+import { ajax } from '@extjs/ext-react/proxies';
 
 export default class RowBodyGridExample extends Component {
 
@@ -16,7 +13,7 @@ export default class RowBodyGridExample extends Component {
         model,
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json'
         } 
     });
@@ -27,9 +24,7 @@ export default class RowBodyGridExample extends Component {
                 title="Summary Row Grid"
                 store={this.store}
                 shadow
-                plugins={{
-                    gridsummaryrow: true
-                }}
+                plugins={gridsummaryrow}
             >
                 <Column 
                     text="Company" 
@@ -42,28 +37,28 @@ export default class RowBodyGridExample extends Component {
                     width="75" 
                     dataIndex="price" 
                     formatter="usMoney" 
-                    summary="average"
+                    summary={average}
                 />
                 <Column 
                     text="Change" 
                     width="90" 
                     dataIndex="priceChange" 
                     renderer={this.renderSign.bind(this, '0.00')}
-                    summary="max" 
+                    summary={max}
                 />
                 <Column 
                     text="% Change" 
                     width="100"
                     dataIndex="priceChangePct" 
                     renderer={this.renderSign.bind(this, '0.00%')}
-                    summary="average" 
+                    summary={average}
                 />
                 <Column 
                     text="Last Updated" 
                     width="125" 
                     dataIndex="lastChange" 
                     formatter="date('m/d/Y')" 
-                    summary="max"
+                    summary={max}
                 />
             </Grid>
         )

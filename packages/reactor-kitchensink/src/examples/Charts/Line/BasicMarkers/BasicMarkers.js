@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { sprite } from '@extjs/ext-react/legends';
+import { panzoom, itemhighlight } from '@extjs/ext-react/interactions';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { line } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
@@ -30,7 +35,7 @@ export default class BasicMarkers extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -41,27 +46,27 @@ export default class BasicMarkers extends Component {
                     insetPadding="20 20 0 10"
                     theme={theme}
                     interactions={[{
-                        type: 'panzoom',
-                    }, 'itemhighlight']}
+                        type: panzoom,
+                    }, itemhighlight]}
                     legend={{
-                        type: 'sprite',
+                        type: sprite,
                         position: 'bottom',
                         marker: { size: 24 }
                     }}
                     store={this.store}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['g1', 'g2', 'g3'],
                         minimum: 0
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         visibleRange: [0, 0.5],
                         fields: 'name'
                     }]}
                     series={[{
-                        type: 'line',
+                        type: line,
                         xField: 'name',
                         yField: 'g1',
                         fill: true,
@@ -89,7 +94,7 @@ export default class BasicMarkers extends Component {
                             }
                         }
                     }, {
-                        type: 'line',
+                        type: line,
                         xField: 'name',
                         yField: 'g2',
                         title: 'Circle',
@@ -113,7 +118,7 @@ export default class BasicMarkers extends Component {
                             }
                         }
                     }, {
-                        type: 'line',
+                        type: line,
                         xField: 'name',
                         yField: 'g3',
                         title: 'Polygon',

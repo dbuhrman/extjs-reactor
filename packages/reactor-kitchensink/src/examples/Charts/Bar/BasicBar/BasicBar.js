@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { bar } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 
 Ext.require([
@@ -40,7 +43,7 @@ export default class BasicBarChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -57,7 +60,7 @@ export default class BasicBarChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         xField: 'country',
                         yField: 'ind',
                         style: {
@@ -71,7 +74,7 @@ export default class BasicBarChartExample extends Component {
                         }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'bottom',
                         fields: 'ind',
                         grid: true,
@@ -80,7 +83,7 @@ export default class BasicBarChartExample extends Component {
                         title: 'Billions of USD',
                         renderer: this.onAxisLabelRender
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'left',
                         fields: 'country',
                         grid: true

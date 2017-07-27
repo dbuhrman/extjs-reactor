@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Spacer, ToggleField, Container, Panel, Button, Menu, MenuItem, MenuRadioItem } from '@extjs/ext-react';
+import { hbox } from '@extjs/ext-react/layouts';
 
 export default class ButtonExample extends Component {
     
@@ -39,7 +40,7 @@ export default class ButtonExample extends Component {
         return (
             <Container padding="10">
                 <Container 
-                    layout={{ type: 'hbox', pack: Ext.os.is.Phone ? 'center' : 'left'}} 
+                    layout={{ type: hbox, pack: Ext.os.is.Phone ? 'center' : 'left'}} 
                     margin="0 0 10 0" 
                     defaults={{ margin: "0 10 0 0" }}
                     width={Ext.isIE && 550}
@@ -114,7 +115,7 @@ const layoutProps = Ext.os.is.Phone ? {
     padding: 10,
     shadow: true,
     defaults: {
-        layout: 'hbox',
+        layout: hbox,
         flex: 1,
         margin: '10',
         width: '100%'
@@ -129,7 +130,7 @@ const buttonGroupProps = Ext.os.is.Phone ? {
     }
 } : {
     padding: '17 0 17 20',
-    layout: { type: 'hbox', align: 'middle', pack: 'space-around' },
+    layout: { type: hbox, align: 'middle', pack: 'space-around' },
     flex: 1,
     margin: '0 20 0 0',
     width: 400,

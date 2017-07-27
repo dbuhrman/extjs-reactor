@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Panel, FileField } from '@extjs/ext-react'
+import { Container, Panel, FileField } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default class SearchFieldExample extends Component {
     
@@ -13,7 +14,7 @@ export default class SearchFieldExample extends Component {
         const { file } = this.state;
 
         return (
-            <Panel shadow height="200" width="400" bodyPadding="20" layout="vbox">
+            <Panel shadow height="200" width="400" bodyPadding="20" layout={vbox}>
                 <FileField 
                     label="Attachment"
                     value={file}

@@ -1,17 +1,18 @@
 import React from 'react';
 import { Panel, Container } from '@extjs/ext-react';
+import { center, fit } from '@extjs/ext-react/layouts';
 import colors from '../../colors';
 
 Ext.require('Ext.panel.Resizable');
 
 export default function ResizableExample() {
     return (
-        <Panel shadow layout="fit">
+        <Panel shadow layout={fit}>
            <Panel 
                 title="Dock Left"
                 docked="left" 
                 width={200}
-                layout="center"
+                layout={center}
                 resizable={{ 
                     split: true, 
                     edges: 'east',
@@ -26,7 +27,7 @@ export default function ResizableExample() {
                 title="Dock Right"
                 width={200}
                 collapsible="right"
-                layout="center"
+                layout={center}
                 resizable={{ 
                     split: true, 
                     edges: 'west' 
@@ -47,7 +48,7 @@ export default function ResizableExample() {
                 docked="bottom" 
                 title="Dock Bottom"
                 height={150}
-                layout="center"
+                layout={center}
                 resizable={{ 
                     split: true, 
                     edges: 'north',

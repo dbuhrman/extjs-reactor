@@ -21,6 +21,8 @@ import {
     Toolbar
 } from '@extjs/ext-react';
 
+import { fit, center, vbox, hbox } from '@extjs/ext-react/layouts';
+
 Ext.require('Ext.field.InputMask'); // need to require this specifically for inputMask props to work
 
 export default class FormPanelExample extends Component {
@@ -43,10 +45,10 @@ export default class FormPanelExample extends Component {
             <Container 
                 platformConfig={{
                     phone: {
-                        layout: 'fit'
+                        layout: fit
                     },
                     "!phone": {
-                        layout: 'center',
+                        layout: center,
                         padding: 10
                     }
                 }}
@@ -83,13 +85,13 @@ export default class FormPanelExample extends Component {
                         <ToggleField label="Toggle" disabled={disabled}/>
                         <TextAreaField label="Bio" maxRows={5} disabled={disabled}/>
                     </FieldSet>
-                    <FieldSet title="Roles" layout={{type: 'vbox', align: 'left'}} margin="15 0" defaults={{labelAlign: "placeholder"}}>
+                    <FieldSet title="Roles" layout={{type: vbox, align: 'left'}} margin="15 0" defaults={{labelAlign: "placeholder"}}>
                         <CheckBoxField disabled={disabled} boxLabel="Admin"/>
                         <CheckBoxField disabled={disabled} boxLabel="Power User"/>
                     </FieldSet>
                     <FieldSet                      
                         title="Favorite Color" 
-                        layout={{ type: 'vbox', align: 'left' }} 
+                        layout={{ type: vbox, align: 'left' }} 
                         defaults={{
                             labelAlign: "placeholder",
                             name: 'color',
@@ -103,7 +105,7 @@ export default class FormPanelExample extends Component {
                         <RadioField disabled={disabled} boxLabel="Green" value="green"/>
                         <RadioField disabled={disabled} boxLabel="Purple" value="purple"/>
                     </FieldSet>
-                    <Toolbar shadow={false} docked="bottom" layout={{ type: 'hbox', pack: 'right' }}>
+                    <Toolbar shadow={false} docked="bottom" layout={{ type: hbox, pack: 'right' }}>
                         <Button text={disabled ? 'Enable All' : 'Disable All'} margin="0 10 0 0" handler={this.toggleDisabled.bind(this)}/>
                         <Button text="Reset" handler={() => this.form.reset()}/>
                     </Toolbar>

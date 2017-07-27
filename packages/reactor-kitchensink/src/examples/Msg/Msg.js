@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button } from '@extjs/ext-react';
 
-Ext.require('Ext.MessageBox');
-
 export default class MsgExample extends Component {
 
     onConfirmResult(buttonId, value, opt) {

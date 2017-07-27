@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
+import { ajax } from '@extjs/ext-react/proxies';
 
 export default class RowBodyGridExample extends Component {
 
@@ -10,7 +11,7 @@ export default class RowBodyGridExample extends Component {
         model,
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json'
         } 
     });   

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuRadioItem } from '@extjs/reactor/modern';
+import { fit, hbox } from '@extjs/ext-react/layouts';
 import { generateData, randomDate } from '../generateSaleData';
 import SaleModel from '../SaleModel';
 
@@ -38,7 +39,7 @@ export default class Collapsible extends Component {
     render() {
         const { collapsibleRows, collapsibleColumns } = this.state;
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     ref="pivotgrid"
@@ -94,7 +95,7 @@ export default class Collapsible extends Component {
                     ui="app-transparent-toolbar"
                     padding="5 8"
                     layout={{
-                        type: 'hbox',
+                        type: hbox,
                         align: 'stretch'
                     }}
                     defaults={{

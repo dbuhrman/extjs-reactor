@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { panzoom, itemhighlight } from '@extjs/ext-react/interactions';
+import { scatter } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react/axes';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -40,7 +44,7 @@ export default class BasicScatterChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onRefreshClick={this.refresh}
                     onToggleZoomOnPan={this.toggleZoomOnPan}
@@ -57,11 +61,11 @@ export default class BasicScatterChartExample extends Component {
                         position: 'bottom'
                     }}
                     interactions={[
-                        'panzoom',
-                        'itemhighlight'
+                        panzoom,
+                        itemhighlight
                     ]}
                     series={[{
-                        type: 'scatter',
+                        type: scatter,
                         xField: 'id',
                         yField: 'g1',
                         title: 'Group 1',
@@ -82,7 +86,7 @@ export default class BasicScatterChartExample extends Component {
                             lineWidth: 2
                         }
                     }, {
-                        type: 'scatter',
+                        type: scatter,
                         xField: 'id',
                         yField: 'g2',
                         title: 'Group 2',
@@ -97,7 +101,7 @@ export default class BasicScatterChartExample extends Component {
                         }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['g1', 'g2', 'g3', 'g4'],
                         visibleRange: [0, 1],
@@ -110,7 +114,7 @@ export default class BasicScatterChartExample extends Component {
                             }
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         visibleRange: [0, 0.5],
                         fields: 'id'

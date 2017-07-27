@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Panel, Button, Container, ToolTip } from '@extjs/ext-react';
+import { vbox, hbox } from '@extjs/ext-react/layouts';
 
 export default class ToolTipExample extends Component {
     render() {
         const containerDefaults = {
             margin: '0 0 50 0',
             layout: {
-                type: Ext.platformTags.phone ? 'vbox' : 'hbox', 
+                type: Ext.platformTags.phone ? vbox : hbox, 
                 align: 'start', 
                 pack: 'center' 
             }
@@ -17,7 +18,7 @@ export default class ToolTipExample extends Component {
         };
 
         return (
-            <Panel layout="vbox" shadow bodyPadding="20" defaults={containerDefaults}>
+            <Panel layout={vbox} shadow bodyPadding="20" defaults={containerDefaults}>
                 <Container defaults={buttonDefaults}>
                     <Button text="Basic Tip">
                         <ToolTip showOnTap>A simple tooltip</ToolTip>

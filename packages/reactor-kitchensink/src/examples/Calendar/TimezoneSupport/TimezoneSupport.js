@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Calendar_Day } from '@extjs/ext-react-calendar';
 import { Panel } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { fit, hbox } from '@extjs/ext-react/layouts';
 import './data';
 
 export default class CalendarTimezoneSupportExample extends Component {
@@ -8,7 +10,7 @@ export default class CalendarTimezoneSupportExample extends Component {
     store = Ext.create('Ext.calendar.store.Calendars', {
         autoLoad:true,
         proxy:{
-            type:'ajax',
+            type: ajax,
             url:'/KitchenSink/CalendarTimezone'
         }
     })
@@ -29,9 +31,9 @@ export default class CalendarTimezoneSupportExample extends Component {
             <Panel
                 shadow
                 title={ Ext.Date.format(new Date(),'F Y') }
-                layout="fit"
+                layout={fit}
                 header={{
-                    layout: 'hbox',
+                    layout: hbox,
                     items: [{
                         xtype: 'component',
                         flex: 1

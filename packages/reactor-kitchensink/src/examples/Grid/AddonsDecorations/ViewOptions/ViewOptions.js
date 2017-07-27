@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { Grid, Column, Toolbar, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-
-Ext.require(['Ext.grid.plugin.ViewOptions']);
+import { ajax } from '@extjs/ext-react/proxies';
+import { gridviewoptions } from '@extjs/ext-react/plugins';
 
 export default class ViewOptionsGridExample extends Component {
 
@@ -12,7 +12,7 @@ export default class ViewOptionsGridExample extends Component {
         model,
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json'
         } 
     });
@@ -22,7 +22,7 @@ export default class ViewOptionsGridExample extends Component {
             <Grid
                 title="Grid with View Options"
                 store={this.store}
-                plugins="gridviewoptions"
+                plugins={gridviewoptions}
                 signTpl={this.signTpl}
                 shadow
             >

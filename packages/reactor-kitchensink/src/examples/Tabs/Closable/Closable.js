@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TabPanel, Container, Toolbar, Button } from '@extjs/ext-react'; 
+import { TabPanel, Container, Toolbar, Button } from '@extjs/ext-react';
+import { fit } from '@extjs/ext-react/layouts';
 
 export default class Closable extends Component {
 
@@ -30,7 +31,7 @@ export default class Closable extends Component {
         const { tabs } = this.state;
 
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <TabPanel 
                     ref={tp => this.tabPanel = tp} 
                     _reactorIgnoreOrder 

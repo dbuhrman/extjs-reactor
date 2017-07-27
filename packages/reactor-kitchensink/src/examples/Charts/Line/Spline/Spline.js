@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric } from '@extjs/ext-react/axes';
+import { line } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import storeData from './storeData';
 
@@ -21,7 +24,7 @@ export default class Spline extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar onThemeChange={this.changeTheme} theme={theme}/>
                 <Cartesian
                     shadow
@@ -29,7 +32,7 @@ export default class Spline extends Component {
                     theme={theme}
                     insetPadding="20 20 0 0"
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         title: 'Sin (Theta)',
                         grid: true,
@@ -38,7 +41,7 @@ export default class Spline extends Component {
                             renderer: (axis, label) => Ext.util.Format.number(label, '0.00')
                         }
                     }, {
-                        type: 'numeric',
+                        type: numeric,
                         position: 'bottom',
                         title: 'Theta',
                         grid: true,
@@ -51,7 +54,7 @@ export default class Spline extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'line',
+                        type: line,
                         xField: 'theta',
                         yField: 'sin',
                         smooth: true,

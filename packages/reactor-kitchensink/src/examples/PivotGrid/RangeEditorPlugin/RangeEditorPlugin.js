@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
+import { fit } from '@extjs/ext-react/layouts';
+import { pivotrangeeditor } from '@extjs/ext-react/plugins';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 
@@ -17,11 +19,11 @@ export default class RangeEditorPlugin extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     ref="pivotgrid"
-                    plugins={[{ type: 'pivotrangeeditor' }]}
+                    plugins={pivotrangeeditor}
                     matrix={{
                         type: 'local',
                         store: this.store,

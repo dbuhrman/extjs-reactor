@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { Grid, Column, Toolbar, NumberField, DatePickerField, RendererCell } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { gridcellediting, grideditable } from '@extjs/ext-react/plugins';
+import { number } from '@extjs/ext-react/data/validators';
 import model from '../CompanyModel';
 import { Template } from '@extjs/reactor';
-
-Ext.require([
-    'Ext.grid.plugin.Editable',
-    'Ext.grid.plugin.CellEditing',
-    'Ext.data.validator.Presence',
-    'Ext.data.validator.Number',
-    'Ext.data.validator.Date'
-]);
 
 export default class EditableGrid extends Component {
     
@@ -18,7 +13,7 @@ export default class EditableGrid extends Component {
         model,
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json'
         } 
     });
@@ -31,14 +26,10 @@ export default class EditableGrid extends Component {
                 store={this.store}
                 platformConfig={{
                     desktop: {
-                        plugins: {
-                            gridcellediting: true
-                        }
+                        plugins: gridcellediting
                     },
                     '!desktop': {
-                        plugins: {
-                            grideditable: true
-                        }
+                        plugins: grideditable
                     }
                 }}
             >
@@ -58,7 +49,7 @@ export default class EditableGrid extends Component {
                     formatter="usMoney" 
                     editable 
                 >
-                    <NumberField required validators={{type:"number", message:"Invalid price"}}/>
+                    <NumberField required validators={{type:number, message:"Invalid price"}}/>
                 </Column>
                 <Column 
                     text="Change" 

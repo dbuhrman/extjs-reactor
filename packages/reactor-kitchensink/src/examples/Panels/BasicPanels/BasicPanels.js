@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Panel, Button } from '@extjs/ext-react';
+import { vbox, hbox } from '@extjs/ext-react/layouts';
 import { shortText, mediumText } from '../../dummy';
-
-Ext.require('Ext.Toast');
 
 function toolHandler(owner, tool) {
     Ext.toast(`You clicked ${tool.config.type || 'a custom tool'}.`);
@@ -18,7 +17,7 @@ export default class BasicPanelsExample extends Component {
                 padding={10} 
                 width={!Ext.os.is.Phone && 700}
                 layout={{
-                    type: 'vbox',
+                    type: vbox,
                     pack: 'center',
                     align: 'stretch'
                 }}
@@ -26,7 +25,7 @@ export default class BasicPanelsExample extends Component {
                 <Container 
                     autoSize 
                     defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }} 
-                    layout={{ type: Ext.os.is.Phone ? 'vbox' : 'hbox', pack: 'center', align: 'stretch' }}
+                    layout={{ type: Ext.os.is.Phone ? vbox : hbox, pack: 'center', align: 'stretch' }}
                     flex={1}
                 >
                     <Panel>
@@ -39,7 +38,7 @@ export default class BasicPanelsExample extends Component {
                 <Container 
                     autoSize 
                     defaults={{ flex: 1, bodyPadding: 10, shadow: true, margin: 10 }} 
-                    layout={{ type: Ext.os.is.Phone ? 'vbox' : 'hbox', pack: 'center', align: 'stretch' }}
+                    layout={{ type: Ext.os.is.Phone ? vbox : hbox, pack: 'center', align: 'stretch' }}
                     flex={1}
                 >
                     <Panel 

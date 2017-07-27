@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Toolbar, Container, Panel, Button, Indicator, SegmentedButton, ToolTip } from '@extjs/ext-react';
+import { vbox, hbox, card } from '@extjs/ext-react/layouts';
 
 export default class WizardExample extends Component {
 
@@ -13,7 +14,7 @@ export default class WizardExample extends Component {
 
         return (
             <Container
-                layout="vbox"
+                layout={vbox}
                 padding={10}
                 platformConfig={{
                     "!phone": {
@@ -22,7 +23,7 @@ export default class WizardExample extends Component {
                     }
                 }}            
             >
-                <Container layout="hbox" margin="0 0 10 0">
+                <Container layout={hbox} margin="0 0 10 0">
                     <SegmentedButton value={this.state.tapMode} onChange={this.changeTapMode} defaultUI="toolbar-default">
                         <Button text="direction" value="direction">
                             <ToolTip maxWidth="300" align="t-b" anchor>
@@ -43,7 +44,7 @@ export default class WizardExample extends Component {
                     </SegmentedButton>
                 </Container>
 
-                <Panel shadow activeItem={step} layout="card" flex={1}>
+                <Panel shadow activeItem={step} layout={card} flex={1}>
                     <Container padding="5 20" style={styles.step}>
                         <h1>Welcome to the Demo Wizard!</h1>
 
@@ -61,7 +62,7 @@ export default class WizardExample extends Component {
 
                         Step 3 of 3 - Complete
                     </Container>
-                    <Toolbar docked="bottom" layout={{ type: 'hbox', align: 'center', pack: 'space-between' }}>
+                    <Toolbar docked="bottom" layout={{ type: hbox, align: 'center', pack: 'space-between' }}>
                         <Button 
                             disabled={step === 0} 
                             text="Previous" 

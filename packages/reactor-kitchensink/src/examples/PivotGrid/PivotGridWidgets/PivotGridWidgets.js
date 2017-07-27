@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@extjs/reactor/modern';
+import { fit } from '@extjs/ext-react/layouts';
 import SaleModel from '../SaleModel';
 import { generateData, randomItem } from '../generateSaleData';
 
@@ -40,7 +41,7 @@ export default class PivotGridWidgets extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     selModel={{ type: 'cellmodel' }}

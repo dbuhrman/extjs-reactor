@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
+import { fit, auto } from '@extjs/ext-react/layouts';
 import { mediumText } from '../../dummy';
 
 Ext.require('Ext.panel.Collapser');
@@ -8,7 +9,7 @@ export default class CollapsibleExample extends Component {
 
     render() {
         return (
-            <Container padding={Ext.os.is.Phone ? 0 : 10} layout={Ext.os.is.Phone ? 'fit' : 'auto'}>
+            <Container padding={Ext.os.is.Phone ? 0 : 10} layout={Ext.os.is.Phone ? fit : auto}>
                 <Panel
                     ref={panel => this.panel = panel}
                     title="Top Collapsible Panel"

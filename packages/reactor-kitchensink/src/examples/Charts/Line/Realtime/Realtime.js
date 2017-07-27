@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { numeric, time } from '@extjs/ext-react/axes';
+import { line } from '@extjs/ext-react/series';
 import addNewData from './addNewData';
 
 const interval = 1000;
@@ -42,14 +44,14 @@ export default class Realtime extends Component {
                 title="Time Axis"
                 insetPadding="30 30 10 10"
                 axes={[{
-                    type: 'numeric',
+                    type: numeric,
                     minimum: 0,
                     maximum: 20,
                     grid: true,
                     position: 'left',
                     title: 'Number of Hits'
                 }, {
-                    type: 'time',
+                    type: time,
                     dateFormat: 'G:i:s',
                     segmenter: {
                         type: 'time',
@@ -68,7 +70,7 @@ export default class Realtime extends Component {
                     majorTickSteps: 10
                 }]}
                 series={[{
-                    type: 'line',
+                    type: line,
                     title: 'Metric 1',
                     marker: {
                         type: 'cross',
@@ -80,7 +82,7 @@ export default class Realtime extends Component {
                     xField: 'xValue',
                     yField: 'metric1'
                 }, {
-                    type: 'line',
+                    type: line,
                     title: 'Metric 2',
                     marker: {
                         type: 'arrow',

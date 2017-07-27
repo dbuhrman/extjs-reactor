@@ -1,9 +1,9 @@
 import React, { Component} from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
+import { fit } from '@extjs/ext-react/layouts';
+import { pivotdrilldown } from '@extjs/ext-react/plugins';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
-
-Ext.require(['Ext.pivot.plugin.DrillDown']);
 
 export default class DrilldownPlugin extends Component {
 
@@ -17,11 +17,11 @@ export default class DrilldownPlugin extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     ref="pivotgrid"
-                    plugins={[{ type: 'pivotdrilldown' }]}
+                    plugins={pivotdrilldown}
                     matrix={{
                         type: 'local',
                         store: this.store,

@@ -1,3 +1,8 @@
+import { float, date, int } from '@extjs/ext-react/data/fields';
+import { presence } from '@extjs/ext-react/data/validators';
+import { ajax } from '@extjs/ext-react/proxies';
+import { json } from '@extjs/ext-react/readers';
+
 export default Ext.define('KitchenSink.model.Company', {
     extend: 'Ext.data.Model',
     requires: [
@@ -13,10 +18,10 @@ export default Ext.define('KitchenSink.model.Company', {
                 message: 'Must be in the format xxx-xxx-xxxx'
             }]
         },
-        { name: 'price', type: 'float'},
-        { name: 'priceChange', type: 'float' },
-        { name: 'priceChangePct', type: 'float' },
-        { name: 'priceLastChange', type: 'date', dateReadFormat: 'n/j' },
+        { name: 'price', type: float},
+        { name: 'priceChange', type: float },
+        { name: 'priceChangePct', type: float },
+        { name: 'priceLastChange', type: date, dateReadFormat: 'n/j' },
 
         // Calculated field. Depends on price value. Adds it to price history.
         // Trend begins with the current price. Changes get pushed onto the end
@@ -53,7 +58,7 @@ export default Ext.define('KitchenSink.model.Company', {
         // Calculated field. Depends on price history being populated.
         {
             name: 'change',
-            type: 'float',
+            type: float,
             calculate: function(data) {
                 var trend = data.trend,
                     len = trend.length;
@@ -65,7 +70,7 @@ export default Ext.define('KitchenSink.model.Company', {
         // Calculated field. Depends on price history and last change being populated.
         {
             name: 'pctChange',
-            type: 'float',
+            type: float,
             calculate: function(data) {
                 var trend = data.trend,
                     len = trend.length;
@@ -77,7 +82,7 @@ export default Ext.define('KitchenSink.model.Company', {
         // Calculated field, recalculated when price changes
         {
             name: 'lastChange',
-            type: 'date',
+            type: date,
             calculate: function(data) {
                 // Signal that we are dependent upon price so we get recaulculated when price changes
                 data.price;
@@ -90,7 +95,7 @@ export default Ext.define('KitchenSink.model.Company', {
         // Rating dependent upon last price change performance 0 = best, 2 = worst
         {
             name: 'rating',
-            type: 'int',
+            type: int,
             calculate: function(data) {
                 var pct = data.pctChange;
 
@@ -100,16 +105,14 @@ export default Ext.define('KitchenSink.model.Company', {
     ],
 
     proxy: {
-        type: 'ajax',
+        type: ajax,
         reader: {
-            type: 'json'
+            type: json
         },
         url: '/KitchenSink/Company'
     },
 
-    validators: {
-        name: 'presence'
-    },
+    validators: { name: presence },
 
     addPriceTick: function () {
         // Set data, but pass "clean" flag.

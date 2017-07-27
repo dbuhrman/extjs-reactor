@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NestedList } from '@extjs/ext-react';
-
-Ext.require('Ext.Toast');
+import { ajax } from '@extjs/ext-react/proxies';
 
 export default class ListExample extends Component {
 
@@ -27,7 +26,7 @@ export default class ListExample extends Component {
         autoLoad: true,
         root: {},
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/tree/cars.json'
         }
     });

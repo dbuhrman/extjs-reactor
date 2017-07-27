@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { rotate } from '@extjs/ext-react/interactions';
+import { sprite } from '@extjs/ext-react/legends';
+import { radar } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 
@@ -30,7 +35,7 @@ export default class Filled extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -38,12 +43,12 @@ export default class Filled extends Component {
                 />
                 <Polar
                     shadow
-                    interactions="rotate"
-                    legend={{ type: 'sprite' }}
+                    interactions={roate}
+                    legend={{ type: sprite }}
                     store={this.store}
                     theme={theme}
                     series={[{
-                        type: 'radar',
+                        type: radar,
                         title: 'G1',
                         xField: 'id',
                         yField: 'g1',
@@ -52,7 +57,7 @@ export default class Filled extends Component {
                             fillOpacity: 0.3
                         }
                     }, {
-                        type: 'radar',
+                        type: radar,
                         title: 'G2',
                         xField: 'id',
                         yField: 'g2',
@@ -62,7 +67,7 @@ export default class Filled extends Component {
                         }
                     }]}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'radial',
                         fields: ['g1', 'g2'],
                         grid: true,
@@ -80,7 +85,7 @@ export default class Filled extends Component {
                             }
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'angular',
                         margin: 20,
                         fields: 'id',

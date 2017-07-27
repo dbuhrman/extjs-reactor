@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Toolbar, Label, SliderField, CheckBoxField, Column, RendererCell, SparkLineLine, Container } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
+import { json } from '@extjs/ext-react/readers';
 import model from '../../CompanyModel';
 import './Ticker.css';
 
@@ -15,10 +17,10 @@ export default class StockTickerGridExample extends Component {
         autoLoad: true,
         pageSize: null,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json',
             reader: {
-                type: 'json',
+                type: json,
                 rootProperty: 'data'
             }
         }

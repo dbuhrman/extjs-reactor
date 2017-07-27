@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { bar3d } from '@extjs/ext-react/series';
+import { fit } from '@extjs/ext-react/layouts';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class Grouped extends Component {
@@ -27,7 +30,7 @@ export default class Grouped extends Component {
 
     render() {
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar downloadChartRef={this.refs.chart}/>
                 <Cartesian
                     shadow
@@ -47,21 +50,21 @@ export default class Grouped extends Component {
                         }
                     }}
                     axes={[{
-                        type: 'numeric3d',
+                        type: numeric3d,
                         position: 'left',
                         fields: ['2013', '2014'],
                         grid: true,
                         title: 'Sales in USD',
                         renderer: this.onAxisLabelRender
                     }, {
-                        type: 'category3d',
+                        type: category3d,
                         position: 'bottom',
                         fields: 'quarter',
                         title: 'Quarter',
                         grid: true
                     }]}
                     series={[{
-                        type: 'bar3d',
+                        type: bar3d,
                         stacked: false,
                         title: ['Previous Year', 'Current Year'],
                         xField: 'quarter',

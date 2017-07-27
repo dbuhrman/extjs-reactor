@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { crosszoom } from '@extjs/ext-react/interactions';
+import { bar } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -36,15 +40,15 @@ export default class MultiaxisColumn extends Component {
 
     render() {
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar onRefreshClick={this.refreshData}/>
                 <Cartesian
                     shadow
                     store={this.store}
                     innerPadding={{ left: 20, right: 20}}
-                    interactions="crosszoom"
+                    interactions={crosszoom}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         xField: 'month',
                         yField: 'highF',
                         yAxis: 'fahrenheit-axis',
@@ -54,7 +58,7 @@ export default class MultiaxisColumn extends Component {
                         },
                         subStyle: { fillStyle: 'url(#rainbow)' }
                     }, {
-                        type: 'bar',
+                        type: bar,
                         xField: 'month',
                         yField: ['lowF'],
                         yAxis: 'fahrenheit-axis',
@@ -64,7 +68,7 @@ export default class MultiaxisColumn extends Component {
                         }
                     }]}
                     axes={[{
-                            type: 'numeric',
+                            type: numeric,
                             id: 'fahrenheit-axis',
                             adjustByMajorUnit: true,
                             position: 'left',
@@ -83,14 +87,14 @@ export default class MultiaxisColumn extends Component {
                             }
                         },
                         {
-                            type: 'numeric',
+                            type: numeric,
                             id: 'celsius-axis',
                             titleMargin: 20,
                             position: 'right',
                             title: 'Temperature in °C'
                         },
                         {
-                            type: 'category',
+                            type: category,
                             id: 'months-axis',
                             position: 'bottom'
                         },

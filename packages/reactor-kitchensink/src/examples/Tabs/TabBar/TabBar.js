@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TabBar, Tab, Panel, Container } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default class TabBarExample extends Component {
 
@@ -11,7 +12,7 @@ export default class TabBarExample extends Component {
         const { activeTab } = this.state;
 
         return (
-            <Container layout={{ type: 'vbox', align: 'center' }} padding="10">
+            <Container layout={{ type: vbox, align: 'center' }} padding="10">
                 <Panel ui="instructions" margin="0 0 20 0" shadow >
                     <div>To acheive the look and feel of tabs without using a <code>TabPanel</code>, you can use <code>TabBar</code> and <code>Tab</code> as standalone components.</div>
                 </Panel>

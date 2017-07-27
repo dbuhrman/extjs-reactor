@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Column, Container, Panel, Toolbar, Button, Menu, MenuItem, MenuCheckItem } from '@extjs/ext-react';
+import { fit } from '@extjs/ext-react/layouts';
+import { selectionreplicator, clipboard } from '@extjs/ext-react/plugins';
 import createStore from './createStore';
-
-Ext.require([
-    'Ext.grid.plugin.Clipboard'
-])
 
 export default class FlexibleSelection extends Component {
 
@@ -46,10 +44,7 @@ export default class FlexibleSelection extends Component {
                 </Toolbar>
                 <Grid
                     store={this.store}
-                    plugins={{
-                        selectionreplicator: true,
-                        clipboard: true
-                    }}
+                    plugins={[ selectionreplicator, clipboard ]}
                     onSelectionChange={this.onSelectionChange}
                     selectable={{
                         extensible,

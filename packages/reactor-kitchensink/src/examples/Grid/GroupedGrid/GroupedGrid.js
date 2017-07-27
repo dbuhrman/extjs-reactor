@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Grid, Toolbar, SegmentedButton, Button, Column } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 import './data';
 
 Ext.require([
@@ -31,7 +32,7 @@ export default class GroupedGridExample extends Component {
         const { grouped } = this.state;
 
         return (
-            <Container layout="vbox" padding="10">
+            <Container layout={vbox} padding="10">
                 <Toolbar margin="0 0 20 0" shadow>
                     <div style={{ marginRight: '10px' }}>Grouping:</div>
                     <SegmentedButton label="Grouping">

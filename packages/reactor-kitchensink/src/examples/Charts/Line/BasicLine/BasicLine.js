@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { line } from '@extjs/ext-react/series';
+import { numeric, time } from '@extjs/ext-react/axes';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
 
@@ -26,7 +29,7 @@ export default class BasicScatterChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -37,17 +40,17 @@ export default class BasicScatterChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     series={{
-                        type: 'line',
+                        type: line,
                         xField: 'time',
                         yField: 'value'
                     }}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: 'value',
                         title: 'USD to Euro'
                     }, {
-                        type: 'time',
+                        type: time,
                         dateFormat: 'Y-m-d',
                         position: 'bottom',
                         fields: 'time',

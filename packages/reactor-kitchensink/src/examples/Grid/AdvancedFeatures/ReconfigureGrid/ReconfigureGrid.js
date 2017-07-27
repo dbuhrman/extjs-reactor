@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Grid, Container, Toolbar, SegmentedButton, Button} from '@extjs/ext-react';
+import { hbox } from '@extjs/ext-react/layouts';
 import model from './GridModel';
 
 export default class ReconfigureGridExample extends Component {
@@ -174,7 +175,7 @@ export default class ReconfigureGridExample extends Component {
                 deferEmptyText={false}
                 emptyText="Click a button to show a dataset."
             >
-                <Toolbar docked="top" ui="transparent" layout="hbox">
+                <Toolbar docked="top" ui="transparent" layout={hbox}>
                     <SegmentedButton width="300" defaults={{ flex: 1 }} onChange={this.onChange}>
                         <Button text="Show Offices" value="Offices"/>
                         <Button text="Show Employees" value="Employees"/>

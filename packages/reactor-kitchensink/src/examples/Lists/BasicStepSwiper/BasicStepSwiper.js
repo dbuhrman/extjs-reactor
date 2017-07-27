@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { List, Panel } from '@extjs/ext-react';
-
-Ext.require([
-    'Ext.dataview.listswiper.ListSwiper',
-    'Ext.dataview.listswiper.Stepper'
-]);
+import { rest } from '@extjs/ext-react/proxies';
+import { listswiper } from '@extjs/ext-react/plugins';
 
 export default class BasicStepSwiper extends Component {
 
@@ -12,7 +9,7 @@ export default class BasicStepSwiper extends Component {
         autoLoad: true,
         sorters: ['last_name', 'first_name'],
         proxy: {
-            type: 'rest',
+            type: rest,
             url: 'resources/data/people.json'
         }
     })
@@ -38,7 +35,7 @@ export default class BasicStepSwiper extends Component {
                     }
                 }}
                 plugins={[{
-                    type: 'listswiper',
+                    type: listswiper,
                     defaults: {
                         ui: 'action'
                     },

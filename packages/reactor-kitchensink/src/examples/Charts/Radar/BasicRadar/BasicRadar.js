@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { rotate } from '@extjs/ext-react/interactions';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { radar } from '@extjs/ext-react/series';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
-
-Ext.require([
-    'Ext.chart.series.Scatter',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category'
-]);
 
 export default class BasicScatterChartExample extends Component {
     
@@ -26,7 +24,7 @@ export default class BasicScatterChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -36,9 +34,9 @@ export default class BasicScatterChartExample extends Component {
                     insetPadding={25}
                     store={this.store}
                     theme={theme}
-                    interactions="rotate"
+                    interactions={rotate}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'radial',
                         fields: 'data1',
                         renderer: (axis, label, layoutContext) => layoutContext.renderer(label) + '%',
@@ -47,12 +45,12 @@ export default class BasicScatterChartExample extends Component {
                         maximum: 25,
                         majorTickSteps: 4
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'angular',
                         grid: true
                     }]}
                     series={[{
-                        type: 'radar',
+                        type: radar,
                         angleField: 'month',
                         radiusField: 'data1',
                         style: {

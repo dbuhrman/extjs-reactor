@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { line } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -48,7 +51,7 @@ export default class WithRenderer extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onRefreshClick={this.refreshData}
@@ -60,17 +63,17 @@ export default class WithRenderer extends Component {
                     store={this.store}
                     theme={theme}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         fields: ['g1'],
                         minimum: 0
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         fields: 'name'
                     }]}
                     series={[{
-                        type: 'line',
+                        type: line,
                         xField: 'name',
                         yField: 'g1',
                         smooth: true,

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { area } from '@extjs/ext-react/series';
+import { sprite } from '@extjs/ext-react/legends';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class NegativeValuesAreaChartExample extends Component {
@@ -56,7 +60,7 @@ export default class NegativeValuesAreaChartExample extends Component {
         const { theme } = this.state;
         
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -66,10 +70,10 @@ export default class NegativeValuesAreaChartExample extends Component {
                     insetPadding={'20 20 10 10'}
                     store={this.store}
                     theme={theme}
-                    legend={{type:'sprite'}}
+                    legend={{ type: sprite }}
                     ref={'negativechart'}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         adjustByMajorUnit: true,
                         position: 'left',
                         fields: ['consumer', 'gaming', 'phone', 'corporate'],
@@ -78,7 +82,7 @@ export default class NegativeValuesAreaChartExample extends Component {
                             fontSize: 14
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom',
                         fields: 'quarter',
                         label: {
@@ -89,7 +93,7 @@ export default class NegativeValuesAreaChartExample extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'area',
+                        type: area,
                         xField: 'quarter',
                         yField: ['gaming' ,'consumer', 'phone', 'corporate'],
                         title:['Gaming Hardware','Consumer Licensing','Phone Hardware','Corporate and Other'],

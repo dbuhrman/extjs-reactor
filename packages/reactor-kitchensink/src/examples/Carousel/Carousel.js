@@ -1,9 +1,10 @@
 import React from 'react';
 import { Carousel, Container } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default function CarouselExample() {
     return (
-        <Container layout={{ type: 'vbox', align: 'stretch' }} padding={10}>
+        <Container layout={{ type: vbox, align: 'stretch' }} padding={10}>
             <Carousel flex={1} shadow>
                 <Container {...cardProps} >
                     <div>Swipe left to show the next card...</div>
@@ -50,7 +51,7 @@ const cardProps = {
     flex: 1,
     style: { ...styles.cardLight, ...styles.card },
     layout: {
-        type: 'vbox',
+        type: vbox,
         align: 'center',
         pack: 'center'
     }

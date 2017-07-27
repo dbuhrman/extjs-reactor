@@ -1,5 +1,6 @@
 import React from 'react';
 import { TabPanel, Container } from '@extjs/ext-react';
+import { center } from '@extjs/ext-react/layouts';
 
 export default function DesktopTabsExample() {
     return (
@@ -8,7 +9,7 @@ export default function DesktopTabsExample() {
             shadow 
             defaults={{
                 cls: "card",
-                layout: "center",
+                layout: center,
                 tab: {
                     flex: 0,
                     minWidth: 100

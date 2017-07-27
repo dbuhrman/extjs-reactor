@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel, Button } from '@extjs/ext-react';
+import { vbox, card } from '@extjs/ext-react/layouts';
 import colors from '../../colors';
 
 export default class CardLayoutExample extends Component {
@@ -37,7 +38,7 @@ export default class CardLayoutExample extends Component {
         ].map(({animation, ...props}, i) => <Button { ...props } key={i} ui={ui} onTap={this.switchCards.bind(this, animation)}/>);
 
         return (
-            <Container layout={{ type: 'vbox', pack: 'center'}}>
+            <Container layout={{ type: vbox, pack: 'center'}}>
                 {contents}
             </Container>
         )
@@ -48,7 +49,7 @@ export default class CardLayoutExample extends Component {
 
         const body = (
             <Container 
-                layout={{ type: 'card', animation }}
+                layout={{ type: card, animation }}
                 activeItem={this.state.activeCard} 
                 flex={1}
                 shadow
@@ -66,7 +67,7 @@ export default class CardLayoutExample extends Component {
         )
 
         return (
-            <Container layout="vbox" padding="10">
+            <Container layout={vbox} padding="10">
                 <Panel shadow ui="instructions" margin="0 0 20 0">
                     <div>
                         A <b>card</b> layout shows one item at a time.  Each item takes on the full height and width of the container.

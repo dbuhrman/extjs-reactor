@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { bar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 
@@ -51,7 +54,7 @@ export default class BasicColumnChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container layout="fit" padding={8}>
+            <Container layout={fit} padding={8}>
                 <ChartToolbar
                     onRefreshClick={this.refresh}
                     onThemeChange={this.changeTheme}
@@ -63,16 +66,16 @@ export default class BasicColumnChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         position: 'left',
                         minimum: 30,
                         title: 'Temperature in °F'
                     }, {
-                        type: 'category',
+                        type: category,
                         position: 'bottom'
                     }]}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         xField: 'month',
                         yField: 'highF'
                     }]}

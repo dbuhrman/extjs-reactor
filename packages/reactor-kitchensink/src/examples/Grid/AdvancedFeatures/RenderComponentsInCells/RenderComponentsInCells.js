@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
 import ActionsCell from './ActionsCell';
 
 export default class RendererCellExample extends Component {
@@ -8,7 +9,7 @@ export default class RendererCellExample extends Component {
         autoLoad: true,
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json'
         } 
     });

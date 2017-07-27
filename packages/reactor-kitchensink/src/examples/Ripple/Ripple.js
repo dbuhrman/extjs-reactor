@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
+import { vbox } from '@extjs/ext-react/layouts';
 
 export default class RippleExample extends React.Component {
 
@@ -9,7 +10,7 @@ export default class RippleExample extends React.Component {
 
     render() {
         return (
-            <Container layout="vbox">
+            <Container layout={vbox}>
                 <div onClick={this.clickHandler} style={styles.rippleTarget}>I ripple when clicked.</div>
                 <Container 
                     style={styles.rippleTarget}

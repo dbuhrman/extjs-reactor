@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { List, Panel } from '@extjs/ext-react';
-
-Ext.require([
-    'Ext.dataview.listswiper.ListSwiper'
-]);
+import { rest } from '@extjs/ext-react/proxies';
+import { listswiper } from '@extjs/ext-react/plugins';
 
 export default class BasicAccordionSwiper extends Component {
 
@@ -11,7 +9,7 @@ export default class BasicAccordionSwiper extends Component {
         autoLoad: true,
         sorters: ['last_name', 'first_name'],
         proxy: {
-            type: 'rest',
+            type: rest,
             url: 'resources/data/people.json'
         }
     })
@@ -37,7 +35,7 @@ export default class BasicAccordionSwiper extends Component {
                     }
                 }}
                 plugins={[{
-                    type: 'listswiper',
+                    type: listswiper,
                     defaults: {
                         ui: 'action'
                     },

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@extjs/reactor/modern';
+import { memory } from '@extjs/ext-react/proxies';
+import { fit, hbox } from '@extjs/ext-react/layouts';
 import SaleModel from '../SaleModel';
 import { generateData, randomItem } from '../generateSaleData';
 
@@ -9,7 +11,7 @@ export default class DataChanges extends Component {
         autoLoad: true,
         autoDestroy: true,
         model: SaleModel,
-        proxy: { type: 'memory' }
+        proxy: { type: memory }
     })
 
     addData = () => { 
@@ -37,7 +39,7 @@ export default class DataChanges extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     matrix={{
@@ -83,7 +85,7 @@ export default class DataChanges extends Component {
                     ui="app-transparent-toolbar"
                     padding="5 8"
                     layout={{
-                        type: 'hbox',
+                        type: hbox,
                         align: 'stretch'
                     }}
                     defaults={{

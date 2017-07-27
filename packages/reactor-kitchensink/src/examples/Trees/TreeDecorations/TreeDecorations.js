@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { TabPanel, Container } from '@extjs/ext-react';
 import { Tree } from '@extjs/ext-react-treegrid';
+import { fit } from '@extjs/ext-react/layouts';
 import store from './Store';
 
 export default class TreeDecorationsExample extends Component {
@@ -14,14 +15,14 @@ export default class TreeDecorationsExample extends Component {
     render(){
         return(
             <TabPanel>
-                <Container layout="fit" title="Row Lines">
+                <Container layout={fit} title="Row Lines">
                     <Tree 
                         {...this.defaults}
                         header={false}
                         rowLines
                     />
                 </Container>
-                <Container layout="fit" title="Single Expand">
+                <Container layout={fit} title="Single Expand">
                     <Tree 
                         {...this.defaults}
                         header={false}

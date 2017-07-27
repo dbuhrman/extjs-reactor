@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
+import { fit, hbox } from '@extjs/ext-react/layouts';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 
@@ -15,7 +16,7 @@ export default class TabularLayout extends Component {
 
     render() {
         return (
-            <Container layout="fit" padding={10}>
+            <Container layout={fit} padding={10}>
                 <PivotGrid
                     shadow
                     ref="pivotgrid"
@@ -70,7 +71,7 @@ export default class TabularLayout extends Component {
                     ui="app-transparent-toolbar"
                     padding="5 8"
                     layout={{
-                        type: 'hbox',
+                        type: hbox,
                         align: 'stretch'
                     }}
                     defaults={{

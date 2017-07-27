@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TabPanel, Panel } from '@extjs/ext-react'; 
+import { TabPanel, Panel } from '@extjs/ext-react';
+import { center } from '@extjs/ext-react/layouts';
 
 Ext.require('Ext.layout.overflow.Scroller');
 
@@ -22,7 +23,7 @@ export default class ScrollingTabsExample extends Component {
                     }
                 }}
                 defaults={{
-                    layout: "center",
+                    layout: center,
                     cls: 'card',
                     bodyPadding: 20,
                     tab: {

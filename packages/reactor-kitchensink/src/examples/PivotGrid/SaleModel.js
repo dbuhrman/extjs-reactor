@@ -1,3 +1,5 @@
+import { int, string, date, float } from '@extjs/ext-react/data/fields';
+
 const regions = {
     "Belgium": 'Europe',
     "Netherlands": 'Europe',
@@ -11,13 +13,13 @@ export default Ext.define(null, {
     extend: 'Ext.data.Model',
 
     fields: [
-            {name: 'id',        type: 'int'},
-            {name: 'company',   type: 'string'},
-            {name: 'country',   type: 'string'},
-            {name: 'person',    type: 'string'},
-            {name: 'date',      type: 'date', dateFormat: 'c'},
-            {name: 'value',     type: 'float'},
-            {name: 'quantity',  type: 'float'},
+            {name: 'id',        type: int},
+            {name: 'company',   type: string},
+            {name: 'country',   type: string},
+            {name: 'person',    type: string},
+            {name: 'date',      type: date, dateFormat: 'c'},
+            {name: 'value',     type: float},
+            {name: 'quantity',  type: float},
             {
                 name: 'year',
                 calculate: function(data){

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Column, GridCell } from '@extjs/ext-react';
+import { ajax } from '@extjs/ext-react/proxies';
 
 export default class GridToolsExample extends Component {
     
@@ -11,7 +12,7 @@ export default class GridToolsExample extends Component {
         sorters: ['cuisine', 'name'],
         pageSize: 0,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/restaurants.json'
         }
     })

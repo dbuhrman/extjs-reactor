@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Panel, Audio, Button, Container } from '@extjs/ext-react';
+import { vbox, fit } from '@extjs/ext-react/layouts';
 
 export default class AudioExample extends Component {
 
@@ -28,10 +29,10 @@ export default class AudioExample extends Component {
         const { playing } = this.state;
 
         return (
-            <Container layout={{ type: 'vbox', align: 'stretch', pack: 'center' }} padding={10}>
+            <Container layout={{ type: vbox, align: 'stretch', pack: 'center' }} padding={10}>
                 <Container 
                     shadow 
-                    layout={Ext.os.is.Android ? { type: 'vbox', align: 'center', pack: 'center' } : 'fit'}
+                    layout={Ext.os.is.Android ? { type: vbox, align: 'center', pack: 'center' } : fit}
                 >
                     <Audio
                         ref="audio"

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { List } from '@extjs/ext-react';
-
-Ext.require('Ext.Toast');
+import { rest } from '@extjs/ext-react/proxies';
 
 export default class BasicListExample extends Component {
 
     store = Ext.create('Ext.data.Store', { 
         autoLoad: true,
         proxy: {
-            type: 'rest',
+            type: rest,
             url: 'resources/data/people.json'
         },
         sorters: ['last_name', 'first_name']

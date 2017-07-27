@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { ChartNavigator } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { panzoom } from '@extjs/ext-react/interactions';
+import { sprite } from '@extjs/ext-react/legends';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { line } from '@extjs/ext-react/series';
 import createData from './createData';
 import ChartToolbar from '../ChartToolbar';
-
-Ext.require([
-    'Ext.chart.series.Line',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Time',
-    'Ext.chart.navigator.Container'
-]);
 
 export default class NavigatorExample extends Component {
 
@@ -44,7 +42,7 @@ export default class NavigatorExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onToggleZoomOnPan={this.toggleZoomOnPan}
@@ -64,7 +62,7 @@ export default class NavigatorExample extends Component {
                             }
                         },
                         interactions: {
-                            type: 'panzoom',
+                            type: panzoom,
                             zoomOnPanGesture: false,
                             axes: {
                                 left: {
@@ -74,16 +72,16 @@ export default class NavigatorExample extends Component {
                             }
                         },
                         legend: {
-                            type: 'sprite'
+                            type: sprite
                         },
                         store: this.store,
                         axes: [{
-                            type: 'numeric',
+                            type: numeric,
                             position: 'left',
                             grid: true
                         }, {
                             id: 'bottom',
-                            type: 'category',
+                            type: category,
                             position: 'bottom',
                             grid: true,
                             renderer: this.categoryRenderer,
@@ -94,7 +92,7 @@ export default class NavigatorExample extends Component {
                             }
                         }],
                         series: [{
-                            type: 'line',
+                            type: line,
                             title: 'sin',
                             xField: 'x',
                             yField: 'sin',
@@ -109,7 +107,7 @@ export default class NavigatorExample extends Component {
                                 scaling: 2
                             }
                         }, {
-                            type: 'line',
+                            type: line,
                             title: 'cos',
                             xField: 'x',
                             yField: 'cos',

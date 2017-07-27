@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-
-Ext.require(['Ext.grid.plugin.RowExpander'])
+import { rowexpander } from '@extjs/ext-react/plugins';
+import { ajax } from '@extjs/ext-react/proxies';
+import { json } from '@extjs/ext-react/readers';
 
 export default class RowExpanderGridExample extends Component {
 
@@ -12,10 +13,10 @@ export default class RowExpanderGridExample extends Component {
         pageSize: null,
         model,
         proxy: {
-            type: 'ajax',
+            type: ajax,
             url: 'resources/data/CompanyData.json',
             reader: {
-                type: 'json',
+                type: json,
                 rootProperty: 'data',
                 implicitIncludes: false
             }
@@ -35,9 +36,7 @@ export default class RowExpanderGridExample extends Component {
             <Grid 
                 title="Row Expander Grid"
                 store={this.store}
-                plugins={{
-                    rowexpander: true
-                }}
+                plugins={rowexpander}
                 shadow
                 itemConfig={{
                     body: {

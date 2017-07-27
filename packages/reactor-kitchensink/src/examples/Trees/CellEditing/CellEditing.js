@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tree, TreeColumn } from '@extjs/ext-react-treegrid';
+import { gridcellediting } from '@extjs/ext-react/plugins';
 import store from './Store';
 
 export default class CellEditingTreeExample extends Component {
@@ -9,9 +10,7 @@ export default class CellEditingTreeExample extends Component {
             <Tree 
                 title="Cell Editing Tree"
                 store={store}
-                plugins={[
-                    {type:'gridcellediting'}
-                ]}
+                plugins={gridcellediting}
             >
                 <TreeColumn
                     text="Name"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Toolbar, Spacer } from '@extjs/ext-react';
 import { PivotD3Container } from '@extjs/ext-react-pivot-d3';
+import { fit } from '@extjs/ext-react/layouts';
 import salesData from './salesData';
 
 Ext.require('Ext.pivot.d3.HeatMap');
@@ -97,7 +98,7 @@ export default class ConfigurablePivotHeatmap extends Component {
             <PivotD3Container
                 ref="mainCtn"
                 shadow
-                layout="fit"
+                layout={fit}
                 onBeforeMoveConfigField={this.onBeforeAddConfigField}
                 onShowConfigFieldSettings={this.onShowFieldSettings}
                 matrix={{

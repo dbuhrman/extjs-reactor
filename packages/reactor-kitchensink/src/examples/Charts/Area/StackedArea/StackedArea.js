@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { area } from '@extjs/ext-react/series';
+import { sprite } from '@extjs/ext-react/legends';
 import ChartToolbar from '../../ChartToolbar';
  
 export default class StackedAreaChartExample extends Component {
@@ -45,7 +49,7 @@ export default class StackedAreaChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -55,16 +59,16 @@ export default class StackedAreaChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     insetPadding={'20 20 10 10'}
-                    legend={{type:'sprite'}}
+                    legend={{type: sprite}}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         fields: 'data1',
                         position: 'left',
                         grid: true,
                         minimum: 0,
                         renderer: this.onAxisLabelRender
                     }, {
-                        type: 'category',
+                        type: category,
                         fields: 'month',
                         position: 'bottom',
                         grid: true,
@@ -75,7 +79,7 @@ export default class StackedAreaChartExample extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'area',
+                        type: area,
                         title: [ 'IE', 'Firefox', 'Chrome', 'Safari' ],
                         xField: 'month',
                         yField: [ 'data1', 'data2', 'data3', 'data4' ],

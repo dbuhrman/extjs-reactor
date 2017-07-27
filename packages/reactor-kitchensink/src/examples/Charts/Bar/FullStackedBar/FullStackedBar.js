@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { sprite } from '@extjs/ext-react/legends';
+import { numeric, category } from '@extjs/ext-react/axes';
+import { bar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class FullStackedBar extends Component {
@@ -52,7 +55,7 @@ export default class FullStackedBar extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     theme={theme}
@@ -63,12 +66,12 @@ export default class FullStackedBar extends Component {
                     store={this.store}
                     theme={theme}
                      legend={{
-                        type: 'sprite',
+                        type: sprite,
                         docked: 'bottom'
                     }}
                     flipXY={true}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         fields: 'data1',
                         position: 'bottom',
                         grid: true,
@@ -80,7 +83,7 @@ export default class FullStackedBar extends Component {
                             fontSize: 14
                         }
                     }, {
-                        type: 'category',
+                        type: category,
                         fields: 'month',
                         position: 'left',
                         grid: true,
@@ -89,7 +92,7 @@ export default class FullStackedBar extends Component {
                         }
                     }]}
                     series={[{
-                        type: 'bar',
+                        type: bar,
                         fullStack: true,
                         title: ['IE', 'Firefox', 'Chrome', 'Safari', 'Others'],
                         xField: 'month',

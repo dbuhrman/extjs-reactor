@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
+import { fit } from '@extjs/ext-react/layouts';
+import { panzoom, crosshair } from '@extjs/ext-react/interactions';
+import { candlestick } from '@extjs/ext-react/series';
+import { numeric, time } from '@extjs/ext-react/axes';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
-
-Ext.require([
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Time',
-    'Ext.chart.series.CandleStick',
-    'Ext.chart.interactions.Crosshair'
-]);
 
 export default class CandlestickChartExample extends Component {
 
@@ -52,7 +49,7 @@ export default class CandlestickChartExample extends Component {
         const { theme } = this.state;
 
         return (
-            <Container padding={!Ext.os.is.Phone && 10} layout="fit">
+            <Container padding={!Ext.os.is.Phone && 10} layout={fit}>
                 <ChartToolbar
                     onThemeChange={this.changeTheme}
                     onToggleZoomOnPan={this.toggleZoomOnPan}
@@ -67,7 +64,7 @@ export default class CandlestickChartExample extends Component {
                     store={this.store}
                     theme={theme}
                     interactions={[{
-                        type: 'panzoom',
+                        type: panzoom,
                         axes: {
                             left: {
                                 allowPan: false,
@@ -79,7 +76,7 @@ export default class CandlestickChartExample extends Component {
                             }
                         }
                     }, {
-                        type: 'crosshair',
+                        type: crosshair,
                         axes: {
                             label: {
                                 fillStyle: 'white'
@@ -92,7 +89,7 @@ export default class CandlestickChartExample extends Component {
                         }
                     }]}
                     series={{
-                        type: 'candlestick',
+                        type: candlestick,
                         xField: 'time',
                         openField: 'open',
                         highField: 'high',
@@ -112,13 +109,13 @@ export default class CandlestickChartExample extends Component {
                         }
                     }}
                     axes={[{
-                        type: 'numeric',
+                        type: numeric,
                         fields: ['open', 'high', 'low', 'close'],
                         position: 'left',
                         maximum: 1000,
                         minimum: 0
                     }, {
-                        type: 'time',
+                        type: time,
                         fields: ['time'],
                         position: 'bottom',
                         visibleRange: [0, 0.3],
