@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabPanel, Component, Container } from '@extjs/ext-react';
-import { vbox, center } from '@extjs/ext-react/layouts';
+import { vbox, center } from '@extjs/ext-react/layout';
 
 export default function TabPanelExample() {
     return (

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, ActionSheet, Container, Button, SparkLineLine, RendererCell, Column, TextColumn, CheckColumn, NumberColumn, DateColumn, Rating, GridSummaryRow } from '@extjs/reactor/modern';
-import { ajax } from '@extjs/ext-react/proxies';
-import { fit } from '@extjs/ext-react/layouts';
-import { grideditable, gridviewoptions, summaryrow, rowexpander, gridexporter, rowoperations } from '@extjs/ext-react/plugins';
+import { ajax } from '@extjs/ext-react/proxy';
+import { fit } from '@extjs/ext-react/layout';
+import { grideditable, gridviewoptions, summaryrow, rowexpander, gridexporter, rowoperations } from '@extjs/ext-react/plugin';
 import model from './GridModel';
 import './data';
 import './style.css';

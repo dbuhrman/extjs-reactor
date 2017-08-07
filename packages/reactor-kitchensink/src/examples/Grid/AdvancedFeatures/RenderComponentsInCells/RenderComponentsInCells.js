@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
+import { ajax } from '@extjs/ext-react/proxy';
 import ActionsCell from './ActionsCell';
 
 export default class RendererCellExample extends Component {

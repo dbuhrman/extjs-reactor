@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormPanel, Panel, Button, Sheet, Container, SegmentedButton, Label, TitleBar } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 export default class MenuExample extends Component {
 

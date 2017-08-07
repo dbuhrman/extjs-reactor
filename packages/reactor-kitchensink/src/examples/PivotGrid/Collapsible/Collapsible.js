@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuRadioItem } from '@extjs/reactor/modern';
-import { fit, hbox } from '@extjs/ext-react/layouts';
+import { fit, hbox } from '@extjs/ext-react/layout';
 import { generateData, randomDate } from '../generateSaleData';
 import SaleModel from '../SaleModel';
 

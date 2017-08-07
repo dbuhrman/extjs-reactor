@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { List, Panel } from '@extjs/ext-react';
-import { rest } from '@extjs/ext-react/proxies';
-import { listswiper } from '@extjs/ext-react/plugins';
+import { rest } from '@extjs/ext-react/proxy';
+import { listswiper } from '@extjs/ext-react/plugin';
 
 export default class UndoableStepSwiper extends Component {
 

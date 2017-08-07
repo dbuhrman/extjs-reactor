@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormPanel, RadioField, FieldSet } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 const radioProps = {
     name: 'radios'

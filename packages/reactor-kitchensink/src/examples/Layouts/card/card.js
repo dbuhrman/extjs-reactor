@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel, Button } from '@extjs/ext-react';
-import { vbox, card } from '@extjs/ext-react/layouts';
+import { vbox, card } from '@extjs/ext-react/layout';
 import colors from '../../colors';
 
 export default class CardLayoutExample extends Component {

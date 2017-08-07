@@ -1,6 +1,6 @@
 import React from 'react';
 import { Panel, Container } from '@extjs/ext-react';
-import { center, fit } from '@extjs/ext-react/layouts';
+import { center, fit } from '@extjs/ext-react/layout';
 import colors from '../../colors';
 
 Ext.require('Ext.panel.Resizable');

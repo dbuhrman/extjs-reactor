@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { fit } from '@extjs/ext-react/layouts';
-import { itemhighlight } from '@extjs/ext-react/interactions';
+import { fit } from '@extjs/ext-react/layout';
+import { itemhighlight } from '@extjs/ext-react/interaction';
 import { scatter } from '@extjs/ext-react/series';
-import { numeric } from '@extjs/ext-react/axes';
+import { numeric } from '@extjs/ext-react/axis';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 

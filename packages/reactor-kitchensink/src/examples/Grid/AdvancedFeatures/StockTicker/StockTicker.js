@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Toolbar, Label, SliderField, CheckBoxField, Column, RendererCell, SparkLineLine, Container } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
-import { json } from '@extjs/ext-react/readers';
+import { ajax } from '@extjs/ext-react/proxy';
+import { json } from '@extjs/ext-react/reader';
 import model from '../../CompanyModel';
 import './Ticker.css';
 

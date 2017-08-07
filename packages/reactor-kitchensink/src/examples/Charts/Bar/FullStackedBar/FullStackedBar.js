@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { sprite } from '@extjs/ext-react/legends';
-import { numeric, category } from '@extjs/ext-react/axes';
+import { sprite } from '@extjs/ext-react/legend';
+import { numeric, category } from '@extjs/ext-react/axis';
 import { bar } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 

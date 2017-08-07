@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-import { gridsummaryrow } from '@extjs/ext-react/plugins';
-import { average, max } from '@extjs/ext-react/data/summaries';
-import { ajax } from '@extjs/ext-react/proxies';
+import { gridsummaryrow } from '@extjs/ext-react/plugin';
+import { average, max } from '@extjs/ext-react/data/summary';
+import { ajax } from '@extjs/ext-react/proxy';
 
 export default class RowBodyGridExample extends Component {
 

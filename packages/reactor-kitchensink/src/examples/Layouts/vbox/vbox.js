@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel, Spacer } from '@extjs/ext-react';
-import { center, vbox } from '@extjs/ext-react/layouts';
+import { center, vbox } from '@extjs/ext-react/layout';
 import colors from '../../colors';
 
 export default class VBoxLayoutExample extends Component {

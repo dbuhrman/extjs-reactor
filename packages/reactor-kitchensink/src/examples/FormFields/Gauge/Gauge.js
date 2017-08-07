@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { SliderField, Gauge, FormPanel } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 export default class GaugeExample extends Component {
 

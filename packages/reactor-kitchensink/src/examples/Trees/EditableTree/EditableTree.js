@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TextColumn } from '@extjs/ext-react';
 import { Tree, TreeColumn } from '@extjs/ext-react-treegrid';
-import { gridcellediting, grideditable } from '@extjs/ext-react/plugins';
+import { gridcellediting, grideditable } from '@extjs/ext-react/plugin';
 import store from './Store.js';
 
 Ext.require([

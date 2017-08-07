@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
-import { fit } from '@extjs/ext-react/layouts';
-import { rotatePie3d } from '@extjs/ext-react/interactions';
+import { fit } from '@extjs/ext-react/layout';
+import { rotatePie3d } from '@extjs/ext-react/interaction';
 import { pie3d } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';

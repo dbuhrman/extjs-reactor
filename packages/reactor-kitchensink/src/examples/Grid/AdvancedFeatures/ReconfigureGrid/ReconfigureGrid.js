@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Grid, Container, Toolbar, SegmentedButton, Button} from '@extjs/ext-react';
-import { hbox } from '@extjs/ext-react/layouts';
+import { hbox } from '@extjs/ext-react/layout';
 import model from './GridModel';
 
 export default class ReconfigureGridExample extends Component {

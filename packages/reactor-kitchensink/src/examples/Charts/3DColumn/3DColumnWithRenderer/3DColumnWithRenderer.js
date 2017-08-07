@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { panzoom } from '@extjs/ext-react/interactions';
-import { numeric3d, category3d } from '@extjs/ext-react/axes';
+import { panzoom } from '@extjs/ext-react/interaction';
+import { numeric3d, category3d } from '@extjs/ext-react/axis';
 import { bar3d } from '@extjs/ext-react/series';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 import ChartToolbar from '../../ChartToolbar';
 import { storeData, colors } from './data';
 

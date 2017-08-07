@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabPanel, Container } from '@extjs/ext-react';
-import { center } from '@extjs/ext-react/layouts';
+import { center } from '@extjs/ext-react/layout';
 
 export default function DesktopTabsExample() {
     return (

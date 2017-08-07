@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Toolbar, Button } from '@extjs/ext-react';
 import { D3_HeatMap } from '@extjs/ext-react-d3';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 import { refreshData, refreshSize } from './createData';
 
 export default class SalesPerEmployee extends Component {

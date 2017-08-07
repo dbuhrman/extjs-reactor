@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { TabPanel, Container } from '@extjs/ext-react';
 import { Tree } from '@extjs/ext-react-treegrid';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 import store from './Store';
 
 export default class TreeDecorationsExample extends Component {

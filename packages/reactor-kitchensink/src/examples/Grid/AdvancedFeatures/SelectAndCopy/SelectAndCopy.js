@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Column, Container, Panel, Toolbar, Button, Menu, MenuItem, MenuCheckItem } from '@extjs/ext-react';
-import { fit } from '@extjs/ext-react/layouts';
-import { selectionreplicator, clipboard } from '@extjs/ext-react/plugins';
+import { fit } from '@extjs/ext-react/layout';
+import { selectionreplicator, clipboard } from '@extjs/ext-react/plugin';
 import createStore from './createStore';
 
 export default class FlexibleSelection extends Component {

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { Grid, Column, Toolbar, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-import { ajax } from '@extjs/ext-react/proxies';
-import { gridviewoptions } from '@extjs/ext-react/plugins';
+import { ajax } from '@extjs/ext-react/proxy';
+import { gridviewoptions } from '@extjs/ext-react/plugin';
 
 export default class ViewOptionsGridExample extends Component {
 

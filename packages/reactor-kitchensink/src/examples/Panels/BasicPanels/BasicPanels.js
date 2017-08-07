@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel, Button } from '@extjs/ext-react';
-import { vbox, hbox } from '@extjs/ext-react/layouts';
+import { vbox, hbox } from '@extjs/ext-react/layout';
 import { shortText, mediumText } from '../../dummy';
 
 function toolHandler(owner, tool) {

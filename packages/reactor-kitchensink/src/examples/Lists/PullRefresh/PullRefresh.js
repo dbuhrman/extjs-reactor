@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { List } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
-import { json } from '@extjs/ext-react/readers';
-import { pullrefresh } from '@extjs/ext-react/plugins';
+import { ajax } from '@extjs/ext-react/proxy';
+import { json } from '@extjs/ext-react/reader';
+import { pullrefresh } from '@extjs/ext-react/plugin';
 
 require('../stocks');
 

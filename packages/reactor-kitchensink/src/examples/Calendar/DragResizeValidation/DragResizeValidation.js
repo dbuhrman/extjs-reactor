@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Calendar_Day } from '@extjs/ext-react-calendar';
 import { Panel } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
-import { fit } from '@extjs/ext-react/layouts';
+import { ajax } from '@extjs/ext-react/proxy';
+import { fit } from '@extjs/ext-react/layout';
 import './data';
 
 export default class CalendarValidationExample extends Component {

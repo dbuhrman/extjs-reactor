@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Container, Column } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
-import { xml } from '@extjs/ext-react/readers';
+import { ajax } from '@extjs/ext-react/proxy';
+import { xml } from '@extjs/ext-react/reader';
 
 
 export default class XmlGridExample extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Column, GridCell } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
+import { ajax } from '@extjs/ext-react/proxy';
 
 export default class GridToolsExample extends Component {
     

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List } from '@extjs/ext-react';
-import { rest } from '@extjs/ext-react/proxies';
+import { rest } from '@extjs/ext-react/proxy';
 
 Ext.require('Ext.MessageBox');
 

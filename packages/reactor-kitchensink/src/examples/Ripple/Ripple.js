@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 export default class RippleExample extends React.Component {
 

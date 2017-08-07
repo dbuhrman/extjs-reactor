@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ContainerField, FormPanel, RadioField, Container, Panel, CheckBoxField, TextField } from '@extjs/ext-react';
-import { vbox, hbox, form } from '@extjs/ext-react/layouts';
+import { vbox, hbox, form } from '@extjs/ext-react/layout';
 
 export default class ContainerFieldExample extends Component {
 

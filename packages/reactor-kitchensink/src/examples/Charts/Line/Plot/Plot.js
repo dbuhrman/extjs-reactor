@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { panzoom } from '@extjs/ext-react/interactions';
-import { numeric } from '@extjs/ext-react/axes';
+import { panzoom } from '@extjs/ext-react/interaction';
+import { numeric } from '@extjs/ext-react/axis';
 import { line } from '@extjs/ext-react/series';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';

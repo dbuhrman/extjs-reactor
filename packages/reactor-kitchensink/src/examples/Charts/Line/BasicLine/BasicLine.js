@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 import { line } from '@extjs/ext-react/series';
-import { numeric, time } from '@extjs/ext-react/axes';
+import { numeric, time } from '@extjs/ext-react/axis';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
 

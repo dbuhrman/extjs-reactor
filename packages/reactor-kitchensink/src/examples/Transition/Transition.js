@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Transition, Spacer, Panel, Button, Menu, MenuItem, NumberField, Label, Container, SliderField } from '@extjs/ext-react';
-import { vbox, hbox, fit } from '@extjs/ext-react/layouts';
+import { vbox, hbox, fit } from '@extjs/ext-react/layout';
 import colors from '../colors';
 
 export default class TransitionExample extends Component {

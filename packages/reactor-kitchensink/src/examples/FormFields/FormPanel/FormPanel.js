@@ -21,7 +21,7 @@ import {
     Toolbar
 } from '@extjs/ext-react';
 
-import { fit, center, vbox, hbox } from '@extjs/ext-react/layouts';
+import { fit, center, vbox, hbox } from '@extjs/ext-react/layout';
 
 Ext.require('Ext.field.InputMask'); // need to require this specifically for inputMask props to work
 

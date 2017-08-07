@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-import { rowexpander } from '@extjs/ext-react/plugins';
-import { ajax } from '@extjs/ext-react/proxies';
-import { json } from '@extjs/ext-react/readers';
+import { rowexpander } from '@extjs/ext-react/plugin';
+import { ajax } from '@extjs/ext-react/proxy';
+import { json } from '@extjs/ext-react/reader';
 
 export default class RowExpanderGridExample extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TabPanel, Panel } from '@extjs/ext-react';
-import { center } from '@extjs/ext-react/layouts';
+import { center } from '@extjs/ext-react/layout';
 
 Ext.require('Ext.layout.overflow.Scroller');
 

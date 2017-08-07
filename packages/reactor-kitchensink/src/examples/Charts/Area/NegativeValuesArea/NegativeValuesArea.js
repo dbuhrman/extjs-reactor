@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { fit } from '@extjs/ext-react/layouts';
-import { numeric, category } from '@extjs/ext-react/axes';
+import { fit } from '@extjs/ext-react/layout';
+import { numeric, category } from '@extjs/ext-react/axis';
 import { area } from '@extjs/ext-react/series';
-import { sprite } from '@extjs/ext-react/legends';
+import { sprite } from '@extjs/ext-react/legend';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class NegativeValuesAreaChartExample extends Component {

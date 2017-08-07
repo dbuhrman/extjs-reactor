@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Draw, Toolbar, Button, Spacer, Label } from '@extjs/ext-react';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 
 export default class DrawExample extends Component {
     

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormPanel, CheckBoxField } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 export default function CheckBoxFieldExample() {
     return (

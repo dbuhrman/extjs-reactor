@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Grid, Column, RendererCell } from '@extjs/ext-react';
 import model from '../../CompanyModel';
 import { Template } from '@extjs/reactor';
-import { ajax } from '@extjs/ext-react/proxies';
+import { ajax } from '@extjs/ext-react/proxy';
 
 export default class RowBodyGridExample extends Component {
 

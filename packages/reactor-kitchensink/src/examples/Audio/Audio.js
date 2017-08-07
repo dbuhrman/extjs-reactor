@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Panel, Audio, Button, Container } from '@extjs/ext-react';
-import { vbox, fit } from '@extjs/ext-react/layouts';
+import { vbox, fit } from '@extjs/ext-react/layout';
 
 export default class AudioExample extends Component {
 

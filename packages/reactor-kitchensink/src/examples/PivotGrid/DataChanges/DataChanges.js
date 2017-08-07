@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button, Menu, MenuItem } from '@extjs/reactor/modern';
-import { memory } from '@extjs/ext-react/proxies';
-import { fit, hbox } from '@extjs/ext-react/layouts';
+import { memory } from '@extjs/ext-react/proxy';
+import { fit, hbox } from '@extjs/ext-react/layout';
 import SaleModel from '../SaleModel';
 import { generateData, randomItem } from '../generateSaleData';
 

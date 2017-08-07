@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TabPanel, Container, Toolbar, Button } from '@extjs/ext-react';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 
 export default class Closable extends Component {
 

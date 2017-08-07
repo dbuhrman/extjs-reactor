@@ -1,6 +1,5 @@
 "use strict";
 
-import { singularize } from 'inflection';
 import { parse } from 'babylon';
 import traverse from 'ast-traverse';
 import generate from 'babel-generator';
@@ -60,8 +59,8 @@ module.exports = function extractFromJSX(js, compilation, module) {
             if (node.type == 'ImportDeclaration') {
                 const aliasMatch = node.source.value.match(ALIAS_PATTERN);
                 if (aliasMatch) {
-                    const aliasType = singularize(aliasMatch[2], aliasMatch[2] === 'axes' ? 'axis' : null);
-                    // look for: import { cellediting } from '@extjs/ext-react/plugins' or import { ajax } from '@extjs/ext-react/proxies'
+                    const aliasType = aliasMatch[2];
+                    // look for: import { cellediting } from '@extjs/ext-react/plugin' or import { ajax } from '@extjs/ext-react/proxy'
                     for (let spec of node.specifiers) {
                         aliasImports.add(`${aliasMatch[1]?'data.':''}${aliasType}.${spec.imported.name.replace(/_/g, '-')}`);
                     }

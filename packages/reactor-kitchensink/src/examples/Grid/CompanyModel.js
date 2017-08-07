@@ -1,7 +1,7 @@
-import { float, date, int } from '@extjs/ext-react/data/fields';
-import { presence } from '@extjs/ext-react/data/validators';
-import { ajax } from '@extjs/ext-react/proxies';
-import { json } from '@extjs/ext-react/readers';
+import { float, date, int } from '@extjs/ext-react/data/field';
+import { presence } from '@extjs/ext-react/data/validator';
+import { ajax } from '@extjs/ext-react/proxy';
+import { json } from '@extjs/ext-react/reader';
 
 export default Ext.define('KitchenSink.model.Company', {
     extend: 'Ext.data.Model',

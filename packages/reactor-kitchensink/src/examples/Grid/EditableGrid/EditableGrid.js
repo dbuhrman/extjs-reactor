@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Column, Toolbar, NumberField, DatePickerField, RendererCell } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
-import { gridcellediting, grideditable } from '@extjs/ext-react/plugins';
-import { number } from '@extjs/ext-react/data/validators';
+import { ajax } from '@extjs/ext-react/proxy';
+import { gridcellediting, grideditable } from '@extjs/ext-react/plugin';
+import { number } from '@extjs/ext-react/data/validator';
 import model from '../CompanyModel';
 import { Template } from '@extjs/reactor';
 

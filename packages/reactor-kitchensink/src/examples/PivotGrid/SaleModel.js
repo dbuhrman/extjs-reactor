@@ -1,4 +1,4 @@
-import { int, string, date, float } from '@extjs/ext-react/data/fields';
+import { int, string, date, float } from '@extjs/ext-react/data/field';
 
 const regions = {
     "Belgium": 'Europe',

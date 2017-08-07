@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, PivotGrid, Toolbar, Button } from '@extjs/reactor/modern';
-import { fit } from '@extjs/ext-react/layouts';
-import { pivotrangeeditor } from '@extjs/ext-react/plugins';
+import { fit } from '@extjs/ext-react/layout';
+import { pivotrangeeditor } from '@extjs/ext-react/plugin';
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 

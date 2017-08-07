@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NestedList } from '@extjs/ext-react';
-import { ajax } from '@extjs/ext-react/proxies';
+import { ajax } from '@extjs/ext-react/proxy';
 
 export default class ListExample extends Component {
 

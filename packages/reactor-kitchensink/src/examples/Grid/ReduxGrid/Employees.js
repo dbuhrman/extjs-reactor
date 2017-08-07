@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filterChange } from './actions';
 import { Grid, Column, TitleBar, SearchField, Label } from '@extjs/ext-react';
-import { gridpagingtoolbar } from '@extjs/ext-react/plugins';
+import { gridpagingtoolbar } from '@extjs/ext-react/plugin';
 import data from './data';
 
 class Employees extends Component {

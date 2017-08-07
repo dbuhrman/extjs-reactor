@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Grid, Toolbar, SegmentedButton, Button, Column } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 import './data';
-
-Ext.require([
-    'Ext.grid.cell.Number',
-    'Ext.grid.cell.Widget',
-    'Ext.grid.SummaryRow',
-    'Ext.ux.rating.Picker'
-]);
 
 export default class GroupedGridExample extends Component {
 

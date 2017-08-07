@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
-import { fit, auto } from '@extjs/ext-react/layouts';
+import { fit, auto } from '@extjs/ext-react/layout';
 import { mediumText } from '../../dummy';
 
 Ext.require('Ext.panel.Collapser');

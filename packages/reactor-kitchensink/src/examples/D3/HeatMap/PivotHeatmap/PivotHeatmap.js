@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Panel, Toolbar, Spacer, Button } from '@extjs/ext-react';
 import createData from './createData';
 import { PivotHeatMap } from '@extjs/ext-react-pivot-d3';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 
 export default class PivotHeatMapExample extends Component {
     constructor() {

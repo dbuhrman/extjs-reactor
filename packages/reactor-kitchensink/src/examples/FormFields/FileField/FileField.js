@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel, FileField } from '@extjs/ext-react';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 
 export default class SearchFieldExample extends Component {
     

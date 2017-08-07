@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Toolbar, Container, Button } from '@extjs/ext-react';
-import { fit } from '@extjs/ext-react/layouts';
+import { fit } from '@extjs/ext-react/layout';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Employees from './Employees';

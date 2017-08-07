@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Panel } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
-import { vbox } from '@extjs/ext-react/layouts';
+import { vbox } from '@extjs/ext-react/layout';
 import { gauge } from '@extjs/ext-react/series';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';

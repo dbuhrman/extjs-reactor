@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
-import { fit, vbox } from '@extjs/ext-react/layouts';
+import { fit, vbox } from '@extjs/ext-react/layout';
 import colors from '../../colors';
 
 export default class FitLayoutExample extends Component {

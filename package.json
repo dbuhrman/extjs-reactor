@@ -1,13 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "lerna bootstrap && node scripts/generate-alias-files.js",
+    "postinstall": "lerna bootstrap",
     "increment": "lerna publish --skip-git --skip-npm",
     "clean": "lerna clean",
     "install:clean": "npm cache clear --force && lerna clean && npm install"
   },
   "devDependencies": {
-    "lerna": "^2.0.0",
-    "inflection": "^1.12.0"
+    "lerna": "^2.0.0"
   }
 }

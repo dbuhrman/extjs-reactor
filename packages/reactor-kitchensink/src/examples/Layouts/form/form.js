@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Panel, FormPanel, TextField } from '@extjs/ext-react';
-import { form } from '@extjs/ext-react/layouts';
+import { form } from '@extjs/ext-react/layout';
 
 export default function FormLayoutExample() {
     return (

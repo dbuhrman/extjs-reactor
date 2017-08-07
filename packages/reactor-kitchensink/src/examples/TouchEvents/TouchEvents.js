@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Panel } from '@extjs/ext-react';
-import { vbox, hbox } from '@extjs/ext-react/layouts';
+import { vbox, hbox } from '@extjs/ext-react/layout';
 
 export default class TouchEventsExample extends Component {
 

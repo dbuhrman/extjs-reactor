@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Toolbar, Container, Panel, Button, Indicator, SegmentedButton, ToolTip } from '@extjs/ext-react';
-import { vbox, hbox, card } from '@extjs/ext-react/layouts';
+import { vbox, hbox, card } from '@extjs/ext-react/layout';
 
 export default class WizardExample extends Component {
 
