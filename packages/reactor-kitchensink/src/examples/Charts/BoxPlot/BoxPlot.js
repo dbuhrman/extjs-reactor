@@ -2,18 +2,10 @@ import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
 import { fit } from '@extjs/ext-react/layout';
-import { numeric, category } from '@extjs/ext-react/axis';
-import { boxplot } from '@extjs/ext-react/series';
+import { numeric, category } from '@extjs/ext-react-charts/axis';
+import { boxplot } from '@extjs/ext-react-charts/series';
 import ChartToolbar from '../ChartToolbar';
 import data from './data';
-
-Ext.require([
-    'Ext.chart.CartesianChart',
-    'Ext.chart.axis.Category',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.series.BoxPlot',
-    'Ext.chart.series.Scatter'
-]);
 
 export default class BoxPlotExample extends Component {
 

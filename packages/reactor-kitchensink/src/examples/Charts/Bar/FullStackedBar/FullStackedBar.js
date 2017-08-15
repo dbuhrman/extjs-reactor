@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { sprite } from '@extjs/ext-react/legend';
-import { numeric, category } from '@extjs/ext-react/axis';
-import { bar } from '@extjs/ext-react/series';
+import { sprite } from '@extjs/ext-react-charts/legend';
+import { numeric, category } from '@extjs/ext-react-charts/axis';
+import { bar } from '@extjs/ext-react-charts/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class FullStackedBar extends Component {

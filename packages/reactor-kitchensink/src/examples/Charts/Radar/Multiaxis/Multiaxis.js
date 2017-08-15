@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
 import { fit } from '@extjs/ext-react/layout';
-import { rotate } from '@extjs/ext-react/interaction';
-import { category, numeric } from '@extjs/ext-react/axis';
-import { radar } from '@extjs/ext-react/series';
+import { rotate } from '@extjs/ext-react-charts/interaction';
+import { category, numeric } from '@extjs/ext-react-charts/axis';
+import { radar } from '@extjs/ext-react-charts/series';
 import ChartToolbar from '../../ChartToolbar';
 import generateData from './generateData';
 

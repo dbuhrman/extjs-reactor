@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Polar } from '@extjs/ext-react-charts';
 import { fit } from '@extjs/ext-react/layout';
-import { pie } from '@extjs/ext-react/series';
+import { pie } from '@extjs/ext-react-charts/series';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 

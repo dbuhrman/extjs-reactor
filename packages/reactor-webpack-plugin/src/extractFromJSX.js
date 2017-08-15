@@ -5,7 +5,7 @@ import traverse from 'ast-traverse';
 import generate from 'babel-generator';
 
 const MODULE_PATTERN = /^@extjs\/(ext-react[^\/]*|reactor\/(classic|modern))$/;
-const ALIAS_PATTERN = /^@extjs\/ext-react\/(data\/)?(.*)$/;  // Used to match imports for aliases (i.e. - plugins, proxies, etc.)
+const ALIAS_PATTERN = /^@extjs\/ext-react[^\/]*\/(data\/)?(.+)$/;  // Used to match imports for aliases (i.e. - plugins, proxies, etc.)
 
 function toXtype(str) {
     return str.toLowerCase().replace(/_/g, '-');

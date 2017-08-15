@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
-import { numeric, time } from '@extjs/ext-react/axis';
-import { line } from '@extjs/ext-react/series';
+import { numeric, time } from '@extjs/ext-react-charts/axis';
+import { line } from '@extjs/ext-react-charts/series';
 import addNewData from './addNewData';
 
 const interval = 1000;

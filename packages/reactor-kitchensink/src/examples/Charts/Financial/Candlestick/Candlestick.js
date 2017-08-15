@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
 import { fit } from '@extjs/ext-react/layout';
-import { panzoom, crosshair } from '@extjs/ext-react/interaction';
-import { candlestick } from '@extjs/ext-react/series';
-import { numeric, time } from '@extjs/ext-react/axis';
+import { panzoom, crosshair } from '@extjs/ext-react-charts/interaction';
+import { candlestick } from '@extjs/ext-react-charts/series';
+import { numeric, time } from '@extjs/ext-react-charts/axis';
 import ChartToolbar from '../../ChartToolbar';
 import createData from './createData';
 

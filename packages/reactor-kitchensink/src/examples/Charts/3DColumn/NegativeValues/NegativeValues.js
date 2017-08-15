@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container } from '@extjs/ext-react';
 import { Cartesian } from '@extjs/ext-react-charts';
 import { fit } from '@extjs/ext-react/layout';
-import { numeric3d, category3d } from '@extjs/ext-react/axis';
-import { bar3d } from '@extjs/ext-react/series';
+import { numeric3d, category3d } from '@extjs/ext-react-charts/axis';
+import { bar3d } from '@extjs/ext-react-charts/series';
 import ChartToolbar from '../../ChartToolbar';
 
 export default class NegativeValues extends Component {
