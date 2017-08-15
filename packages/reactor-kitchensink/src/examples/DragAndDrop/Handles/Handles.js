@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Panel } from '@extjs/ext-react';
 import './styles.css';
 
-Ext.require(['Ext.drag.*']);
-
 export default class Handles extends Component {
 
     render() {

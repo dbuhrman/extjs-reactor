@@ -6,12 +6,6 @@ import { bar } from '@extjs/ext-react-charts/series';
 import { numeric, category } from '@extjs/ext-react-charts/axis';
 import ChartToolbar from '../../ChartToolbar';
 
-Ext.require([
-    'Ext.chart.series.Bar',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category'
-]);
-
 export default class BasicBarChartExample extends Component {
 
     store = Ext.create('Ext.data.Store', {

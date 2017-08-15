@@ -13,8 +13,6 @@ const regions = {
     "Australia": 'Australia'
 };
 
-Ext.require(['Ext.pivot.d3.TreeMap']);
-
 export default class ConfigurablePivotTreeMap extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {

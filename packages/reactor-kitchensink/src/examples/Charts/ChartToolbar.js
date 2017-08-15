@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 import { Label, Spacer, Button, Toolbar, SegmentedButton, Menu, MenuItem } from '@extjs/ext-react';
 
-Ext.require([
-    'Ext.chart.theme.Blue',
-    'Ext.chart.theme.Green',
-    'Ext.chart.theme.Muted',
-    'Ext.chart.theme.Red',
-    'Ext.chart.theme.Sky',
-    'Ext.chart.theme.Yellow'
-]);
-
 const toolbarItemDefaults = {
     margin: '0 10px 0 0'
 }

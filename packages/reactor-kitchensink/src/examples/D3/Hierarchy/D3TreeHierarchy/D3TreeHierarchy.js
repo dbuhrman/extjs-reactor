@@ -3,11 +3,6 @@ import { Panel } from '@extjs/ext-react';
 import { D3_Tree } from '@extjs/ext-react-d3';
 import treeDataReader from './Salary';
 
-Ext.require([
-    'Ext.d3.interaction.PanZoom',
-    'Ext.tip.ToolTip'
-]);
-
 export default class D3TreeHierarchy extends Component {
 
     store = Ext.create('Ext.data.TreeStore', {

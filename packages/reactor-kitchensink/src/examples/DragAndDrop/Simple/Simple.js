@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from '@extjs/ext-react';
 
-Ext.require(['Ext.drag.*']);
-
 export default class Simple extends Component {
 
     state = {

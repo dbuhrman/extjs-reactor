@@ -5,11 +5,6 @@ import { pivotexporter, pivotconfigurator } from '@extjs/ext-react-pivot/plugin'
 import SaleModel from '../SaleModel';
 import { generateData } from '../generateSaleData';
 
-Ext.require([
-    'Ext.pivot.plugin.Exporter',
-    'Ext.pivot.plugin.Configurator'
-]);
-
 export default class ExporterPlugin extends Component {
 
     store = Ext.create('Ext.data.Store', {

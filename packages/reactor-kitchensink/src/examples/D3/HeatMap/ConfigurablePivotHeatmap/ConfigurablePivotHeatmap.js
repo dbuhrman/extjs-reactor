@@ -4,8 +4,6 @@ import { PivotD3Container } from '@extjs/ext-react-pivot-d3';
 import { fit } from '@extjs/ext-react/layout';
 import salesData from './salesData';
 
-Ext.require('Ext.pivot.d3.HeatMap');
-
 const regions = {
     "Belgium": 'Europe',
     "Netherlands": 'Europe',

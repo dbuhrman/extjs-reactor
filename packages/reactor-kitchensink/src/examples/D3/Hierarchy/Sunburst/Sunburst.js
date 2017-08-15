@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Tree } from '@extjs/ext-react';
 import { D3_Sunburst } from '@extjs/ext-react-d3';
-
-Ext.require([
-    'Ext.util.Format',
-    'Ext.plugin.Responsive'
-]);
+import { responsive } from '@extjs/ext-react/plugin';
 
 export default class Sunburst extends Component {
 
@@ -63,7 +59,7 @@ export default class Sunburst extends Component {
         return (
             <Panel 
                 shadow 
-                plugins="responsive" 
+                plugins={responsive} 
                 layout={Ext.platformTags.phone ? 'vbox' : 'hbox'}
                 responsiveConfig={{
                     'width > 600': {

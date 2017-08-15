@@ -8,13 +8,6 @@ import model from './GridModel';
 import './data';
 import './style.css';
 
-Ext.require([
-    'Ext.grid.plugin.*',
-    'Ext.tip.ToolTip',
-    'Ext.data.summary.Sum',
-    'Ext.exporter.*'
-]);
-
 export default class BigDataGridExample extends Component {
 
     state = {

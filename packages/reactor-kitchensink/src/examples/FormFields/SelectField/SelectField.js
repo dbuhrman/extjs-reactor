@@ -1,8 +1,6 @@
 import React from 'react';
 import { FormPanel, SelectField } from '@extjs/ext-react';
 
-Ext.require('Ext.Toast');
-
 export default function SelectFieldExample() {
     return (
         <FormPanel shadow>

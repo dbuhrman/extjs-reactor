@@ -8,13 +8,6 @@ import { numeric, category } from '@extjs/ext-react-charts/axis';
 import createData from './createData';
 import ChartToolbar from '../../ChartToolbar';
 
-Ext.require([
-    'Ext.chart.*',
-    'Ext.chart.series.Scatter',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Category'
-]);
-
 export default class BasicScatterChartExample extends Component {
     
     constructor() {

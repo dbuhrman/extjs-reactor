@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Panel } from '@extjs/ext-react';
 import './styles.css';
 
-Ext.require(['Ext.drag.*']);
-
 const DEFAULT_TEXT = 'Drag a file from your computer here';
 
 export default class Files extends Component {

@@ -7,12 +7,6 @@ import { numeric, time } from '@extjs/ext-react-charts/axis';
 import data from './data';
 import ChartToolbar from '../../ChartToolbar';
 
-Ext.require([
-    'Ext.chart.series.Line',
-    'Ext.chart.axis.Numeric',
-    'Ext.chart.axis.Time'
-]);
-
 export default class BasicScatterChartExample extends Component {
     
     store = Ext.create('Ext.data.Store', {

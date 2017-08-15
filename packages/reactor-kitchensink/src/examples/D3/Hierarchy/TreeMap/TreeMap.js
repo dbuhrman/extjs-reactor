@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Panel } from '@extjs/ext-react';
 import { D3_TreeMap } from '@extjs/ext-react-d3';
-
-Ext.require(['Ext.d3.interaction.PanZoom']);
+import { panzoom } from '@extjs/ext-react-charts/interaction';
 
 export default class TreeMap extends Component {
 
@@ -86,7 +85,7 @@ export default class TreeMap extends Component {
                 <D3_TreeMap
                     store={this.store}
                     interactions={{
-                        type: 'panzoom',
+                        type: panzoom,
                         zoom: {
                             doubleTap: false
                         }
